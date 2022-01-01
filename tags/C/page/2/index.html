@@ -13,14 +13,13 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="referrer" content="no-referrer-when-downgrade">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>Tag: C++ | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
@@ -28,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -107,28 +106,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>Contact</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>Friends</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
@@ -150,6 +127,8 @@
             
         </div>
     </div>
+
+    
 
     <ul class="menu-list mobile-menu-list">
         
@@ -204,28 +183,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			About
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			Contact
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			Friends
 		</a>
           
         </li>
@@ -324,9 +281,13 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "网站重建中",
+                                "网站还未建成，请见谅",
                             
-                                "Website rebuilding...",
+                                "Website is still uncompleted, sorry.",
+                            
+                                "网站基于 Github，加载较慢请稍候",
+                            
+                                "Website is based on Github, slow loading, please wait.",
                             
                         ],
                         startDelay: 300,
@@ -366,28 +327,10 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/C/" title="C++: 26">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="C++" style="background-color: #F9EBEA;">C++
-                        <span class="tag-length">26</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/STL/" title="STL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="STL" style="background-color: #F5EEF8;">STL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/Hexo/" title="Hexo: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Hexo" style="background-color: #D5F5E3;">Hexo
+                            data-tagname="Hexo" style="background-color: #F9EBEA;">Hexo
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -396,16 +339,25 @@
                 <a href="/tags/JavaScript/" title="JavaScript: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="JavaScript" style="background-color: #E8F8F5;">JavaScript
+                            data-tagname="JavaScript" style="background-color: #F5EEF8;">JavaScript
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集: 1">
+                <a href="/tags/C/" title="C++: 26">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="C++" style="background-color: #D5F5E3;">C++
+                        <span class="tag-length">26</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/STL/" title="STL: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="并查集" style="background-color: #FEF9E7;">并查集
+                            data-tagname="STL" style="background-color: #E8F8F5;">STL
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -414,7 +366,7 @@
                 <a href="/tags/%E4%BA%8C%E5%88%86/" title="二分: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="二分" style="background-color: #F8F9F9;">二分
+                            data-tagname="二分" style="background-color: #FEF9E7;">二分
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -423,7 +375,7 @@
                 <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" title="拓扑排序: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="拓扑排序" style="background-color: #82E0AA;">拓扑排序
+                            data-tagname="拓扑排序" style="background-color: #F8F9F9;">拓扑排序
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -432,7 +384,7 @@
                 <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="线段树" style="background-color: #D7BDE2;">线段树
+                            data-tagname="线段树" style="background-color: #82E0AA;">线段树
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -441,8 +393,44 @@
                 <a href="/tags/DP/" title="DP: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="DP" style="background-color: #A3E4D7;">DP
+                            data-tagname="DP" style="background-color: #D7BDE2;">DP
                         <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="并查集" style="background-color: #A3E4D7;">并查集
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%90%9C%E7%B4%A2/" title="搜索: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="搜索" style="background-color: #85C1E9;">搜索
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/DFS/" title="DFS: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="DFS" style="background-color: #F8C471;">DFS
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BFS/" title="BFS: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BFS" style="background-color: #F9E79F;">BFS
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -450,7 +438,7 @@
                 <a href="/tags/Hash/" title="Hash: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Hash" style="background-color: #85C1E9;">Hash
+                            data-tagname="Hash" style="background-color: #F5EEF8;">Hash
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -459,7 +447,7 @@
                 <a href="/tags/Floyd/" title="Floyd: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Floyd" style="background-color: #F8C471;">Floyd
+                            data-tagname="Floyd" style="background-color: #D7BDE2;">Floyd
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -478,15 +466,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="SPFA" style="background-color: #F9E79F;">SPFA
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/JAVA/" title="JAVA: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="JAVA" style="background-color: #A3E4D7;">JAVA
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -519,33 +498,6 @@
                 </a>
                 
                 
-                <a href="/tags/%E6%90%9C%E7%B4%A2/" title="搜索: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="搜索" style="background-color: #F5EEF8;">搜索
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/DFS/" title="DFS: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="DFS" style="background-color: #F5EEF8;">DFS
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/BFS/" title="BFS: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="BFS" style="background-color: #E8F8F5;">BFS
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/Google-Voice/" title="Google Voice: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -555,11 +507,11 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="博弈论: 2">
+                <a href="/tags/JAVA/" title="JAVA: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="博弈论" style="background-color: #F5EEF8;">博弈论
-                        <span class="tag-length">2</span>
+                            data-tagname="JAVA" style="background-color: #A3E4D7;">JAVA
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -586,6 +538,24 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="多重背包" style="background-color: #D5F5E3;">多重背包
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="博弈论: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="博弈论" style="background-color: #F5EEF8;">博弈论
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="计算几何" style="background-color: #FFF;">计算几何
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -618,19 +588,19 @@
                 </a>
                 
                 
-                <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何: 1">
+                <a href="/tags/KMP/" title="KMP: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="计算几何" style="background-color: #FFF;">计算几何
+                            data-tagname="KMP" style="background-color: #F9EBEA;">KMP
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/KMP/" title="KMP: 1">
+                <a href="/tags/ZJCPC-2021/" title="ZJCPC 2021: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="KMP" style="background-color: #F9EBEA;">KMP
+                            data-tagname="ZJCPC 2021" style="background-color: #FFF;">ZJCPC 2021
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -654,33 +624,6 @@
                 </a>
                 
                 
-                <a href="/tags/ZJCPC-2021/" title="ZJCPC 2021: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ZJCPC 2021" style="background-color: #FFF;">ZJCPC 2021
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/MathJax/" title="MathJax: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="MathJax" style="background-color: #A3E4D7;">MathJax
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/markdown/" title="markdown: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="markdown" style="background-color: #D5F5E3;">markdown
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="AC 自动机: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -699,10 +642,19 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%9B%BE/" title="图: 1">
+                <a href="/tags/%E5%8C%BA%E9%97%B4DP/" title="区间DP: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="图" style="background-color: #F5EEF8;">图
+                            data-tagname="区间DP" style="background-color: #F8C471;">区间DP
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%A0%91/" title="树: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="树" style="background-color: #FEF9E7;">树
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -721,24 +673,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="逆序对" style="background-color: #F8F9F9;">逆序对
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8C%BA%E9%97%B4DP/" title="区间DP: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="区间DP" style="background-color: #F8C471;">区间DP
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%A0%91/" title="树: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="树" style="background-color: #FEF9E7;">树
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -771,6 +705,15 @@
                 </a>
                 
                 
+                <a href="/tags/%E5%9B%BE/" title="图: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="图" style="background-color: #F5EEF8;">图
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/Eclipse/" title="Eclipse: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -784,6 +727,24 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Git" style="background-color: #F9E79F;">Git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/MathJax/" title="MathJax: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="MathJax" style="background-color: #A3E4D7;">MathJax
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/markdown/" title="markdown: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="markdown" style="background-color: #D5F5E3;">markdown
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -865,13 +826,13 @@
             
             <div class="article tag-post col s12 m6 l4" data-tags="C++, LCA" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2021/02/04/2021-2-4-LCA/">
+                    <a href="/2021/02/04/2021-2-4/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LCA">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2021.2.4">
                             
-                            <span class="card-title">LCA</span>
+                            <span class="card-title">2021.2.4</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -897,13 +858,13 @@
             
             <div class="article tag-post col s12 m6 l4" data-tags="C++, LCA" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2021/02/04/2021-2-4/">
+                    <a href="/2021/02/04/2021-2-4-LCA/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2021.2.4">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LCA">
                             
-                            <span class="card-title">2021.2.4</span>
+                            <span class="card-title">LCA</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -1188,12 +1149,12 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="491164332"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'
                    loop='all'
-                   order='random'
+                   order='list'
                    preload='auto'
                    volume='0.7'
                    list-folded='true'
@@ -1203,44 +1164,41 @@
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
-
-    <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2021-2022</span>
             
+            <span id="year">2021</span>
             <a href="/about" target="_blank">OwlllOvO</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">59.3k</span>
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">59.3k</span>&nbsp;字
             
             
             
-                
             
             
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
             </span>
             
             
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
             </span>
             
             <br>
-
-            <!-- 运行天数提醒. -->
             
             <br>
             
@@ -1252,19 +1210,19 @@
 
 
 
-    <a href="mailto:OwlllOvO@OwlllOvO.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:Im@OwlllOvO.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="https://www.facebook.com/OwlllOuO/" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/OwlllOuO/" data-position="top" data-delay="50">
+    <a href="https://www.facebook.com/profile.php?id=100046032892124" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/profile.php?id=100046032892124" data-position="top" data-delay="50">
         <i class="fab fa-facebook-f"></i>
     </a>
 
 
 
-    <a href="https://twitter.com/OwlllOuO" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/OwlllOuO" data-position="top" data-delay="50">
+    <a href="https://twitter.com/OwlllOvO" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/OwlllOvO" data-position="top" data-delay="50">
         <i class="fab fa-twitter"></i>
     </a>
 
@@ -1280,15 +1238,59 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
 </div>
     </div>
 </footer>
 
 <div class="progress-bar"></div>
+
+<script>
+!function(){
+function n(n,e,t){
+return n.getAttribute(e)||t
+}
+function e(n){
+return document.getElementsByTagName(n)
+}
+function t(){
+var t=e("script"),o=t.length,i=t[o-1];
+return{l:o,z:n(i,"zIndex",-1),o:n(i,"opacity",.5),c:n(i,"color","0,0,0"),n:n(i,"count",99)}
+}
+function o(){
+a=m.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,
+c=m.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight
+}
+function i(){
+r.clearRect(0,0,a,c);
+var n,e,t,o,m,l;
+s.forEach(function(i,x){
+for(i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>a||i.x<0?-1:1,i.ya*=i.y>c||i.y<0?-1:1,r.fillRect(i.x-.5,i.y-.5,1,1),e=x+1;e<u.length;e++)n=u[e],
+null!==n.x&&null!==n.y&&(o=i.x-n.x,m=i.y-n.y,
+l=o*o+m*m,l<n.max&&(n===y&&l>=n.max/2&&(i.x-=.03*o,i.y-=.03*m),
+t=(n.max-l)/n.max,r.beginPath(),r.lineWidth=t/2,r.strokeStyle="rgba("+d.c+","+(t+.2)+")",r.moveTo(i.x,i.y),r.lineTo(n.x,n.y),r.stroke()))
+}),
+x(i)
+}
+var a,c,u,m=document.createElement("canvas"),
+d=t(),l="c_n"+d.l,r=m.getContext("2d"),
+x=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+function(n){
+window.setTimeout(n,1e3/45)
+},
+w=Math.random,y={x:null,y:null,max:2e4};m.id=l,m.style.cssText="position:fixed;top:0;left:0;z-index:"+d.z+";opacity:"+d.o,e("body")[0].appendChild(m),o(),window.onresize=o,
+window.onmousemove=function(n){
+n=n||window.event,y.x=n.clientX,y.y=n.clientY
+},
+window.onmouseout=function(){
+y.x=null,y.y=null
+};
+for(var s=[],f=0;d.n>f;f++){
+var h=w()*a,g=w()*c,v=2*w()-1,p=2*w()-1;s.push({x:h,y:g,xa:v,ya:p,max:6e3})
+}
+u=s.concat([y]),
+setTimeout(function(){i()},100)
+}();
+</script>
 
 
     <!-- 搜索遮罩框 -->
@@ -1410,22 +1412,6 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
-    
-
-    
-
-    <!-- 雪花特效 -->
-    
-
-    <!-- 鼠标星星特效 -->
-    
-
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
-    
-
     <!-- Baidu Analytics -->
 
     <!-- Baidu Push -->
@@ -1444,6 +1430,8 @@ $(function () {
     })();
 </script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
