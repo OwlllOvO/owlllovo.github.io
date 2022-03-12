@@ -503,7 +503,16 @@
 </ul>
 </li>
 </ul>
-<h2 id="模板-•-单点修改-•-数组"><a href="#模板-•-单点修改-•-数组" class="headerlink" title="模板 • 单点修改 • 数组"></a>模板 • 单点修改 • 数组</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+<h2 id="模板-•-单点修改-•-数组"><a href="#模板-•-单点修改-•-数组" class="headerlink" title="模板 • 单点修改 • 数组"></a>模板 • 单点修改 • 数组</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;*
+ 输入数据个数 n
+ 一行输入 n 个数据
+ 输入修改个数 m
+ m 行每行修改下标 idx 及修改数据 val
+ 输入查询个数 q
+ q 行每行查询左边界右边界 l r
+ *&#x2F;
+
+#define _CRTSECURE_NOWARNINGS
 #pragma warning(disable:4996)
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
@@ -522,88 +531,96 @@ using namespace std;
 
 const int MAX_LEN &#x3D; 1000016;
 int n, m, q;
-int arr[MAX_LEN], tree[MAX_LEN &lt;&lt; 2];
 
-void build_tree(int node, int start, int end)
+struct SEGT
 &#123;
-	if (start &#x3D;&#x3D; end)
-	&#123;
-		tree[node] &#x3D; arr[start];
-		return;
-	&#125;
+    int arr[MAX_LEN], tree[MAX_LEN &lt;&lt; 2];
+    
+    void build_tree(int node, int start, int end)
+    &#123;
+        if (start &#x3D;&#x3D; end)
+        &#123;
+            tree[node] &#x3D; arr[start];
+            return;
+        &#125;
 
-	int mid &#x3D; (start + end) &gt;&gt; 1;
-	int left_node  &#x3D; node &lt;&lt; 1;
-	int right_node &#x3D; node &lt;&lt; 1 | 1;
+        int mid &#x3D; (start + end) &gt;&gt; 1;
+        int left_node  &#x3D; node &lt;&lt; 1;
+        int right_node &#x3D; node &lt;&lt; 1 | 1;
 
-	build_tree(left_node,  start,   mid);
-	build_tree(right_node, mid + 1, end);
+        build_tree(left_node,  start,   mid);
+        build_tree(right_node, mid + 1, end);
 
-	tree[node] &#x3D; tree[left_node] + tree[right_node];
-&#125;
+        tree[node] &#x3D; tree[left_node] + tree[right_node];
+    &#125;
 
-void update_tree(int node, int start, int end, int idx, int val)
-&#123;
-	if (start &#x3D;&#x3D; end)
-	&#123;
-		arr[idx] &#x3D; val;
-		tree[node] &#x3D; arr[idx];
-		return;
-	&#125;
+    void update_tree(int node, int start, int end, int idx, int val)
+    &#123;
+        if (start &#x3D;&#x3D; end)
+        &#123;
+            arr[idx] &#x3D; val;
+            tree[node] &#x3D; arr[idx];
+            return;
+        &#125;
 
-	int mid &#x3D; (start + end) &gt;&gt; 1;
-	int left_node  &#x3D; node &lt;&lt; 1;
-	int right_node &#x3D; node &lt;&lt; 1 | 1;
+        int mid &#x3D; (start + end) &gt;&gt; 1;
+        int left_node  &#x3D; node &lt;&lt; 1;
+        int right_node &#x3D; node &lt;&lt; 1 | 1;
 
-	if (idx &lt;&#x3D; mid)
-        update_tree(left_node,  start,   mid, idx, val);
-	else
-        update_tree(right_node, mid + 1, end, idx, val);
+        if (idx &lt;&#x3D; mid)
+            update_tree(left_node,  start,   mid, idx, val);
+        else
+            update_tree(right_node, mid + 1, end, idx, val);
 
-	tree[node] &#x3D; tree[left_node] + tree[right_node];
-&#125;
+        tree[node] &#x3D; tree[left_node] + tree[right_node];
+    &#125;
 
-int query_tree(int node, int start, int end, int l, int r)
-&#123;
-	if (r &lt; start || l &gt; end) return 0;
-	if (l &lt;&#x3D; start &amp;&amp; r &gt;&#x3D; end) return tree[node];
-	if (start &#x3D;&#x3D; end) return tree[node];
+    int query_tree(int node, int start, int end, int l, int r)
+    &#123;
+        if (r &lt; start || l &gt; end) return 0;
+        if (l &lt;&#x3D; start &amp;&amp; r &gt;&#x3D; end) return tree[node];
+        if (start &#x3D;&#x3D; end) return tree[node];
 
-	int mid &#x3D; (start + end) &gt;&gt; 1;
-	int left_node  &#x3D; node &lt;&lt; 1;
-	int right_node &#x3D; node &lt;&lt; 1 | 1;
-	int sum_left  &#x3D; query_tree(left_node,  start,   mid, l, r);
-	int sum_right &#x3D; query_tree(right_node, mid + 1, end, l, r);
+        int mid &#x3D; (start + end) &gt;&gt; 1;
+        int left_node  &#x3D; node &lt;&lt; 1;
+        int right_node &#x3D; node &lt;&lt; 1 | 1;
+        int sum_left  &#x3D; query_tree(left_node,  start,   mid, l, r);
+        int sum_right &#x3D; query_tree(right_node, mid + 1, end, l, r);
 
-	return sum_left + sum_right;
-&#125;
+        return sum_left + sum_right;
+    &#125;
+&#125;;
+
+SEGT segt;
 
 int main()
 &#123;
-	while (scanf(&quot;%d&quot;, &amp;n) !&#x3D; EOF)
-	&#123;
-		for (int i &#x3D; 1; i &lt;&#x3D; n; i++) scanf(&quot;%d&quot;, &amp;arr[i]);
-		build_tree(1, 1, n);
-		scanf(&quot;%d&quot;, &amp;m);
-		while (m--)
-		&#123;
-			int idx, val;
-			scanf(&quot;%d%d&quot;, &amp;idx, &amp;val);
-			update_tree(1, 1, n, idx, val);
-		&#125;
-		scanf(&quot;%d&quot;, &amp;q);
-		while (q--)
-		&#123;
-			int l, r;
-			scanf(&quot;%d%d&quot;, &amp;l, &amp;r);
-			printf(&quot;%d\n&quot;, query_tree(1, 1, n, l, r));
-		&#125;
-	&#125;
+    while (scanf(&quot;%d&quot;, &amp;n) !&#x3D; EOF)
+    &#123;
+        for (int i &#x3D; 1; i &lt;&#x3D; n; i++) scanf(&quot;%d&quot;, &amp;segt.arr[i]);
+        segt.build_tree(1, 1, n);
+        scanf(&quot;%d&quot;, &amp;m);
+        while (m--)
+        &#123;
+            int idx, val;
+            scanf(&quot;%d%d&quot;, &amp;idx, &amp;val);
+            segt.update_tree(1, 1, n, idx, val);
+        &#125;
+        scanf(&quot;%d&quot;, &amp;q);
+        while (q--)
+        &#123;
+            int l, r;
+            scanf(&quot;%d%d&quot;, &amp;l, &amp;r);
+            printf(&quot;%d\n&quot;, segt.query_tree(1, 1, n, l, r));
+        &#125;
+    &#125;
 
 
-	return 0;
+    return 0;
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1128,7 +1145,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.3k</span>&nbsp;字
+                class="white-color">58.4k</span>&nbsp;字
             
             
             
