@@ -449,7 +449,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1><h2 id="基础-DP"><a href="#基础-DP" class="headerlink" title="基础 DP"></a>基础 DP</h2><h3 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h3><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1><h2 id="基础-DP"><a href="#基础-DP" class="headerlink" title="基础 DP"></a>基础 DP</h2><h3 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h3><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
 <li>连续</li>
 </ul>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>动态转移方程</p>
@@ -728,9 +728,9 @@ for (int i &#x3D; 1; i &lt;&#x3D; m; i++)
 
 <h4 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h4><p>1 2 3 4 (0) -&gt; 3 3 4 (3) -&gt; 6 4 (9) -&gt; 10 (19)</p>
 <h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>f[x][y]：从 x 到 y 的最小得分</p>
-<p>w[x][y]：从 x 到 y 的重量和</p>
-<p>转移方程：<code>f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j] + w[i][ends]);</code></p>
-<p>其中 w[x][y] 可以用前缀和数组 sum[] 代替，w[x][y] = sum[y] - sum[x - 1]</p>
+<p>sum[x][y]：从 x 到 y 的重量和</p>
+<p>转移方程：<code>f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j] + sum[i][ends]);</code></p>
+<p>其中 sum[x][y] 可以用前缀和数组 arr[] 代替，sum[x][y] = arr[y] - arr[x - 1]</p>
 <h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
 #pragma warning(disable:4996)
 #include&lt;cstdio&gt;
@@ -799,9 +799,9 @@ int main()
 
 <h4 id="Hint-1"><a href="#Hint-1" class="headerlink" title="Hint"></a>Hint</h4><p>1 ≤ N ≤ 100，0 ≤ a<sub>i</sub> ≤ 200 ≤ a<sub>i</sub> ≤ 20。</p>
 <h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>f1[x][y]：从 x 到 y 的最小得分</p>
-<p>w[x][y]：从 x 到 y 的重量和</p>
-<p>转移方程：<code>f1[i][j] = min(f1[i][j], f1[i][k] + f1[k + 1][j] + w[i][ends]);</code></p>
-<p>其中 w[x][y] 可以用前缀和数组 sum[] 代替，w[x][y] = sum[y] - sum[x - 1]</p>
+<p>sum[x][y]：从 x 到 y 的重量和</p>
+<p>转移方程：<code>f1[i][j] = min(f1[i][j], f1[i][k] + f1[k + 1][j] + sum[i][ends]);</code></p>
+<p>其中 sum[x][y] 可以用前缀和数组 arr[] 代替 sum[x][y] = arr[y] - arr[x - 1]</p>
 <h4 id="Accepted-Code-1"><a href="#Accepted-Code-1" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
 #pragma warning(disable:4996)
 #include&lt;cstdio&gt;
@@ -825,7 +825,6 @@ int s[300];
 int d(int i,int j)  &#x2F;&#x2F;转移方程：f[i][j] &#x3D; max(f[i][k]+f[k+1][j]+d[i][j];
 &#123;
     return s[j] - s[i - 1];
-    
 &#125;
 
 int main()
@@ -858,7 +857,7 @@ int main()
     
     printf(&quot;%d\n%d&quot;, minl, maxl);
     return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1722,8 +1721,7 @@ int main()
     solve(b,cntb);
     for(int i&#x3D;0;i&lt;&#x3D;9;i++)
     printf(&quot;%lld &quot;,cntb[i]-cnta[i]);
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2169,7 +2167,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.6k</span>&nbsp;字
+                class="white-color">89.4k</span>&nbsp;字
             
             
             

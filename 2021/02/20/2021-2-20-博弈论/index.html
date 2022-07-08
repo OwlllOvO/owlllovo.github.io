@@ -445,7 +445,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><h2 id="巴什博弈"><a href="#巴什博弈" class="headerlink" title="巴什博弈"></a>巴什博弈</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>一堆物品有 n 个，两个人轮流从这堆物品中取物，规定每次可以取走 1 ~ m 个，最后取光者得胜。</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><h2 id="巴什博弈"><a href="#巴什博弈" class="headerlink" title="巴什博弈"></a>巴什博弈</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>一堆物品有 n 个，两个人轮流从这堆物品中取物，规定每次可以取走 1 ~ m 个，最后取光者得胜。</p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>显然，如果 n = m + 1，那么由于一次最多只能取 m 个，所以，无论先取者拿走多少个，后取者都能够一次拿走剩余的物品，后者取胜。因此我们发现了如何取胜的法则：如果 n = (m + 1) r + s，（r 为任意自然数，s ≤ m），那么先取者要拿走 s 个物品，如果后取者拿走 k(≤ m) 个，那么先取者再拿走 m + 1 - k 个，结果剩下 (m + 1)(r - 1) 个，以后保持这样的取法，那么先取者肯定获胜。总之，要保持给对手留下 (m + 1) 的倍数，就能最后获胜。</p>
 <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
 #pragma warning(disable:4996)
@@ -661,6 +661,59 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
+                <a href="/2021/02/21/2021-2-21-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="计算几何">
+                        
+                        <span class="card-title">计算几何</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                        <span class="chip bg-color">计算几何</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/02/20/2021-2-20/">
                     <div class="card-image">
                         
@@ -677,9 +730,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -701,59 +754,6 @@ int main()
                     
                     <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
                         <span class="chip bg-color">博弈论</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/04/2021-2-4-LCA/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LCA">
-                        
-                        <span class="card-title">LCA</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ACM/" class="post-category">
-                                    ACM
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/LCA/">
-                        <span class="chip bg-color">LCA</span>
                     </a>
                     
                 </div>
@@ -956,7 +956,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.6k</span>&nbsp;字
+                class="white-color">89.4k</span>&nbsp;字
             
             
             

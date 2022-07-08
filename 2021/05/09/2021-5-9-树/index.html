@@ -421,7 +421,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    672
+                    2.5k
                 </div>
                 
 
@@ -441,42 +441,342 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>二叉树是一棵<strong>空树</strong>，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
-<h3 id="基本形态"><a href="#基本形态" class="headerlink" title="基本形态"></a>基本形态</h3><p>二叉树是递归定义的，其结点有左右子树之分，逻辑上二叉树有五种基本形态：</p>
-<ol>
-<li><p>空二叉树</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><ul>
+<li><p>对于无根树：为每个结点开辟一个线性列表，记录所有与之相连的结点。</p>
+<p><code>std::vector&lt;int&gt; adj[N]; </code></p>
 </li>
-<li><p>只有根结点的二叉树</p>
-</li>
-<li><p>只有左子树的二叉树</p>
-</li>
-<li><p>只有右子树的二叉树</p>
-</li>
-<li><p>完全二叉树</p>
-</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210509235326.PNG"></p>
+<li><p>对于有根树：</p>
 <ul>
-<li>满二叉树：如果一棵二叉树只有度为 0 的结点和度为 2 的结点，并且度为 0 的结点在同一层上，则这棵二叉树为满二叉树。</li>
-<li>完全二叉树：深度为 k，有 n 个结点的二叉树当且仅当其每一个结点都与深度为 k 的满二叉树中编号从 1 到 n 的结点一一对应时，称为完全二叉树。</li>
-</ul>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>二叉树的第i层上至多有 2<sup>i - 1</sup> (i ≥ 1) 个节点</li>
-<li>深度为 h 的二叉树中至多含有 2<sup>h - 1</sup> 个节点</li>
-<li>若在任意一棵二叉树中，有n<sub>0</sub>个叶子节点，有 n<sub>2</sub> 个度为 2 的节点，则必有n<sub>0</sub> = n<sub>2</sub>+1</li>
-<li>具有 n 个节点的完全二叉树深为 log<sub>2</sub>x + 1（其中 x 表示不大于 n 的最大整数）</li>
-<li>若对一棵有 n 个节点的完全二叉树进行顺序编号（1 ≤ i ≤ n），那么，对于编号为 i（i ≥ 1）的节点：<ol>
-<li>当 i = 1 时，该节点为根，它无双亲节点</li>
-<li>当 i &gt; 1 时，该节点的双亲节点的编号为 i / 2</li>
-<li>若 2i ≤ n，则有编号为 2i 的左节点，否则没有左节点</li>
-<li>若 2i + 1 ≤ n，则有编号为 2i + 1 的右节点，否则没有右节点</li>
-</ol>
+<li><p>方法一：若给定的是无向图，则仍可以上述形式存储。下文将介绍如何区分结点的上下关系。</p>
 </li>
+<li><p>方法二：若输入数据能够确保结点的上下关系，则可以利用这个信息。为每个结点开辟一个线性列表，记录其所有子结点；若有需要，还可在另一个数组中记录其父结点。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">std::vector&lt;int&gt; children[N];
+int parent[N];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul>
+<li><p>先序遍历：左中右</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void preTrav(BiTree* root) 
+&#123;
+	if (root) 
+    &#123;
+		cout &lt;&lt; root-&gt;key &lt;&lt; &quot; &quot;;
+		preTrav(root-&gt;left);
+		preTrav(root-&gt;right);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="树的直径"><a href="#树的直径" class="headerlink" title="树的直径"></a>树的直径</h2><h3 id="两次-DFS"><a href="#两次-DFS" class="headerlink" title="两次 DFS"></a>两次 DFS</h3><p>第一次从任意节点开始 DFS 找到最远的节点 z，第二次从 z 开始 DFS 找到最远的节点 z’，则 dis(z, z’) 为树的直径</p>
+<ul>
+<li>定理：在一棵树上，从任意节点 y 开始进行一次 DFS，到达的距离其最远的节点 z 必为直径的一端。</li>
+<li>不适用于存在负权边的树</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int N &#x3D; 10000 + 10;
+
+int n, c, d[N];
+vector&lt;int&gt; E[N];
+
+void dfs(int u, int fa) &#123;
+  for (int v : E[u]) &#123;
+    if (v &#x3D;&#x3D; fa) continue;
+    d[v] &#x3D; d[u] + 1;
+    if (d[v] &gt; d[c]) c &#x3D; v;
+    dfs(v, u);
+  &#125;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i &#x3D; 1; i &lt; n; i++) &#123;
+    int u, v;
+    scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+    E[u].push_back(v), E[v].push_back(u);
+  &#125;
+  dfs(1, 0);
+  d[c] &#x3D; 0, dfs(c, 0);
+  printf(&quot;%d\n&quot;, d[c]);
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="树形-DP"><a href="#树形-DP" class="headerlink" title="树形 DP"></a>树形 DP</h3><p>我们记录当 $1$ 为树的根时，每个节点作为子树的根向下，所能延伸的最远距离 $d_1$，和次远距离 $d_2$，那么直径就是所有 $d_1+d_2$ 的最大值。</p>
+<p>树形 DP 可以在存在负权边的情况下求解出树的直径。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int N &#x3D; 10000 + 10;
+
+int n, d &#x3D; 0;
+int d1[N], d2[N];
+vector&lt;int&gt; E[N];
+
+void dfs(int u, int fa) &#123;
+  d1[u] &#x3D; d2[u] &#x3D; 0;
+  for (int v : E[u]) &#123;
+    if (v &#x3D;&#x3D; fa) continue;
+    dfs(v, u);
+    int t &#x3D; d1[v] + 1;
+    if (t &gt; d1[u])
+      d2[u] &#x3D; d1[u], d1[u] &#x3D; t;
+    else if (t &gt; d2[u])
+      d2[u] &#x3D; t;
+  &#125;
+  d &#x3D; max(d, d1[u] + d2[u]);
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i &#x3D; 1; i &lt; n; i++) &#123;
+    int u, v;
+    scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+    E[u].push_back(v), E[v].push_back(u);
+  &#125;
+  dfs(1, 0);
+  printf(&quot;%d\n&quot;, d);
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="LCA"><a href="#LCA" class="headerlink" title="LCA"></a>LCA</h2><p>树上两个节点的最近公共祖先</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>LCA(u) = u</li>
+<li>若 LCA(u, v) = u 则 u 是 v 的祖先</li>
+<li>如果 u 不为 v 的祖先并且 v 不为 u 的祖先，那么 u, v 分别处于 LCA(u, v) 的两棵不同子树中</li>
+<li>前序遍历中，LCA(S) 出现在所有 S 中元素之前，后序遍历中 LCA(S) 则出现在所有 S 中元素之后</li>
+<li>两点集并的最近公共祖先为两点集分别的最近公共祖先的最近公共祖先，即 $LCA(A\cup B)=LCA(LCA(A),LCA(b))$ </li>
+<li>两点的最近公共祖先必定处在树上两点间的最短路上</li>
+<li>$d(u, v) = h(u) + h(v) -2h(LCA(u,v))$，其中 d 是树上两点间的距离，h 代表某点到树根的距离</li>
+</ul>
+<h3 id="在线-·-倍增"><a href="#在线-·-倍增" class="headerlink" title="在线 · 倍增"></a>在线 · 倍增</h3><p>倍增算法是最经典的 LCA 求法，他是朴素算法的改进算法。通过预处理 $fa_{x,i}$ 数组，游标可以快速移动，大幅减少了游标跳转次数。 $fa_{x,i}$  表示点 $x$ 的第 $2^i$ 个祖先。 数组可以通过 DFS 预处理出来。</p>
+<p>现在我们看看如何优化这些跳转： 在调整游标的第一阶段中，我们要将 $u, v$ 两点跳转到同一深度。我们可以计算出 $u, v$ 两点的深度之差，设其为 $y$。通过将 $y$ 进行二进制拆分，我们将 $y$ 次游标跳转优化为 <code> 的二进制表示所含 1 的个数</code> 次游标跳转。 在第二阶段中，我们从最大的 $i$ 开始循环尝试，一直尝试到 $0$ （包括 $0$），如果 $fa_{u,i}\neq fa_{v,i}$，则 $u\leftarrow fa_{u,i}, v\leftarrow fa_{v,i}$，那么最后的 LCA 为 $fa_{u,0}$。</p>
+<p>倍增算法的预处理时间复杂度为 $O(n\log n)$，单次查询时间复杂度为 $O(\log n)$ 。 另外倍增算法可以通过交换 <code>fa</code> 数组的两维使较小维放在前面。这样可以减少 cache miss 次数，提高程序效率。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#define MXN 50007
+using namespace std;
+std::vector&lt;int&gt; v[MXN];
+std::vector&lt;int&gt; w[MXN];
+
+int fa[MXN][31], cost[MXN][31], dep[MXN];
+int n, m;
+int a, b, c;
+
+&#x2F;&#x2F; dfs，用来为 lca 算法做准备。接受两个参数：dfs 起始节点和它的父亲节点。
+void dfs(int root, int fno) &#123;
+  &#x2F;&#x2F; 初始化：第 2^0 &#x3D; 1 个祖先就是它的父亲节点，dep 也比父亲节点多 1。
+  fa[root][0] &#x3D; fno;
+  dep[root] &#x3D; dep[fa[root][0]] + 1;
+  &#x2F;&#x2F; 初始化：其他的祖先节点：第 2^i 的祖先节点是第 2^(i-1) 的祖先节点的第
+  &#x2F;&#x2F; 2^(i-1) 的祖先节点。
+  for (int i &#x3D; 1; i &lt; 31; ++i) &#123;
+    fa[root][i] &#x3D; fa[fa[root][i - 1]][i - 1];
+    cost[root][i] &#x3D; cost[fa[root][i - 1]][i - 1] + cost[root][i - 1];
+  &#125;
+  &#x2F;&#x2F; 遍历子节点来进行 dfs。
+  int sz &#x3D; v[root].size();
+  for (int i &#x3D; 0; i &lt; sz; ++i) &#123;
+    if (v[root][i] &#x3D;&#x3D; fno) continue;
+    cost[v[root][i]][0] &#x3D; w[root][i];
+    dfs(v[root][i], root);
+  &#125;
+&#125;
+
+&#x2F;&#x2F; lca。用倍增算法算取 x 和 y 的 lca 节点。
+int lca(int x, int y) &#123;
+  &#x2F;&#x2F; 令 y 比 x 深。
+  if (dep[x] &gt; dep[y]) swap(x, y);
+  &#x2F;&#x2F; 令 y 和 x 在一个深度。
+  int tmp &#x3D; dep[y] - dep[x], ans &#x3D; 0;
+  for (int j &#x3D; 0; tmp; ++j, tmp &gt;&gt;&#x3D; 1)
+    if (tmp &amp; 1) ans +&#x3D; cost[y][j], y &#x3D; fa[y][j];
+  &#x2F;&#x2F; 如果这个时候 y &#x3D; x，那么 x，y 就都是它们自己的祖先。
+  if (y &#x3D;&#x3D; x) return ans;
+  &#x2F;&#x2F; 不然的话，找到第一个不是它们祖先的两个点。
+  for (int j &#x3D; 30; j &gt;&#x3D; 0 &amp;&amp; y !&#x3D; x; --j) &#123;
+    if (fa[x][j] !&#x3D; fa[y][j]) &#123;
+      ans +&#x3D; cost[x][j] + cost[y][j];
+      x &#x3D; fa[x][j];
+      y &#x3D; fa[y][j];
+    &#125;
+  &#125;
+  &#x2F;&#x2F; 返回结果。
+  ans +&#x3D; cost[x][0] + cost[y][0];
+  return ans;
+&#125;
+
+int main() &#123;
+  &#x2F;&#x2F; 初始化表示祖先的数组 fa，代价 cost 和深度 dep。
+  memset(fa, 0, sizeof(fa));
+  memset(cost, 0, sizeof(cost));
+  memset(dep, 0, sizeof(dep));
+  &#x2F;&#x2F; 读入树：节点数一共有 n 个。
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i &#x3D; 1; i &lt; n; ++i) &#123;
+    scanf(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c);
+    ++a, ++b;
+    v[a].push_back(b);
+    v[b].push_back(a);
+    w[a].push_back(c);
+    w[b].push_back(c);
+  &#125;
+  &#x2F;&#x2F; 为了计算 lca 而使用 dfs。
+  dfs(1, 0);
+  &#x2F;&#x2F; 查询 m 次，每一次查找两个节点的 lca 点。
+  scanf(&quot;%d&quot;, &amp;m);
+  for (int i &#x3D; 0; i &lt; m; ++i) &#123;
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+    ++a, ++b;
+    printf(&quot;%d\n&quot;, lca(a, b));
+  &#125;
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="离线-·-Tarjan"><a href="#离线-·-Tarjan" class="headerlink" title="离线 · Tarjan"></a>离线 · Tarjan</h3><p><code>Tarjan 算法</code> 是一种 <code>离线算法</code>，需要使用 <code>并查集</code> 记录某个结点的祖先结点。做法如下：</p>
+<ol>
+<li>首先接受输入（邻接链表）、查询（存储在另一个邻接链表内）。查询边其实是虚拟加上去的边，为了方便，每次输入查询边的时候，将这个边及其反向边都加入到 <code>queryEdge</code> 数组里。</li>
+<li>然后对其进行一次 DFS 遍历，同时使用 <code>visited</code> 数组进行记录某个结点是否被访问过、<code>parent</code>记录当前结点的父亲结点。</li>
+<li>其中涉及到了 <code>回溯思想</code>，我们每次遍历到某个结点的时候，认为这个结点的根结点就是它本身。让以这个结点为根节点的 DFS 全部遍历完毕了以后，再将 <code>这个结点的根节点</code> 设置为 <code>这个结点的父一级结点</code>。</li>
+<li>回溯的时候，如果以该节点为起点，<code>queryEdge</code> 查询边的另一个结点也恰好访问过了，则直接更新查询边的 LCA 结果。</li>
+<li>最后输出结果。</li>
 </ol>
-<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p> 一棵二叉树由根结点、左子树和右子树三部分组成，若规定 D、L、R 分别代表遍历根结点、遍历左子树、遍历右子树，则二叉树的遍历方式有 6 种：DLR、DRL、LDR、LRD、RDL、RLD。由于先遍历左子树和先遍历右子树在算法设计上没有本质区别，所以，只讨论三种方式：</p>
-<p>DLR - 前序遍历（根在前，从左往右，一棵树的根永远在左子树前面，左子树又永远在右子树前面 ）</p>
-<p>LDR - 中序遍历（根在中，从左往右，一棵树的左子树永远在根前面，根永远在右子树前面）</p>
-<p>LRD - 后序遍历（根在后，从左往右，一棵树的左子树永远在右子树前面，右子树永远在根前面）</p>
+<p>Tarjan 算法需要初始化并查集，所以预处理的时间复杂度为 $O(n)$，Tarjan 算法处理所有 $m$ 次询问的时间复杂度为 $O(n+m)$。但是 Tarjan 算法的常数比倍增算法大。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+class Edge &#123;
+ public:
+  int toVertex, fromVertex;
+  int next;
+  int LCA;
+  Edge() : toVertex(-1), fromVertex(-1), next(-1), LCA(-1)&#123;&#125;;
+  Edge(int u, int v, int n) : fromVertex(u), toVertex(v), next(n), LCA(-1)&#123;&#125;;
+&#125;;
+
+const int MAX &#x3D; 100;
+int head[MAX], queryHead[MAX];
+Edge edge[MAX], queryEdge[MAX];
+int parent[MAX], visited[MAX];
+int vertexCount, edgeCount, queryCount;
+
+void init() &#123;
+  for (int i &#x3D; 0; i &lt;&#x3D; vertexCount; i++) &#123;
+    parent[i] &#x3D; i;
+  &#125;
+&#125;
+
+int find(int x) &#123;
+  if (parent[x] &#x3D;&#x3D; x) &#123;
+    return x;
+  &#125; else &#123;
+    return find(parent[x]);
+  &#125;
+&#125;
+
+void tarjan(int u) &#123;
+  parent[u] &#x3D; u;
+  visited[u] &#x3D; 1;
+
+  for (int i &#x3D; head[u]; i !&#x3D; -1; i &#x3D; edge[i].next) &#123;
+    Edge&amp; e &#x3D; edge[i];
+    if (!visited[e.toVertex]) &#123;
+      tarjan(e.toVertex);
+      parent[e.toVertex] &#x3D; u;
+    &#125;
+  &#125;
+
+  for (int i &#x3D; queryHead[u]; i !&#x3D; -1; i &#x3D; queryEdge[i].next) &#123;
+    Edge&amp; e &#x3D; queryEdge[i];
+    if (visited[e.toVertex]) &#123;
+      queryEdge[i ^ 1].LCA &#x3D; e.LCA &#x3D; find(e.toVertex);
+    &#125;
+  &#125;
+&#125;
+
+int main() &#123;
+  memset(head, 0xff, sizeof(head));
+  memset(queryHead, 0xff, sizeof(queryHead));
+
+  cin &gt;&gt; vertexCount &gt;&gt; edgeCount &gt;&gt; queryCount;
+  int count &#x3D; 0;
+  for (int i &#x3D; 0; i &lt; edgeCount; i++) &#123;
+    int start &#x3D; 0, end &#x3D; 0;
+    cin &gt;&gt; start &gt;&gt; end;
+
+    edge[count] &#x3D; Edge(start, end, head[start]);
+    head[start] &#x3D; count;
+    count++;
+
+    edge[count] &#x3D; Edge(end, start, head[end]);
+    head[end] &#x3D; count;
+    count++;
+  &#125;
+
+  count &#x3D; 0;
+  for (int i &#x3D; 0; i &lt; queryCount; i++) &#123;
+    int start &#x3D; 0, end &#x3D; 0;
+    cin &gt;&gt; start &gt;&gt; end;
+
+    queryEdge[count] &#x3D; Edge(start, end, queryHead[start]);
+    queryHead[start] &#x3D; count;
+    count++;
+
+    queryEdge[count] &#x3D; Edge(end, start, queryHead[end]);
+    queryHead[end] &#x3D; count;
+    count++;
+  &#125;
+
+  init();
+  tarjan(1);
+
+  for (int i &#x3D; 0; i &lt; queryCount; i++) &#123;
+    Edge&amp; e &#x3D; queryEdge[i * 2];
+    cout &lt;&lt; &quot;(&quot; &lt;&lt; e.fromVertex &lt;&lt; &quot;,&quot; &lt;&lt; e.toVertex &lt;&lt; &quot;) &quot; &lt;&lt; e.LCA &lt;&lt; endl;
+  &#125;
+
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
             </div>
@@ -891,7 +1191,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.6k</span>&nbsp;字
+                class="white-color">89.4k</span>&nbsp;字
             
             
             
