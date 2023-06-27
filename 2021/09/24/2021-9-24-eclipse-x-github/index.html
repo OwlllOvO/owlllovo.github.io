@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   
-  <title>Archives: 2021/2 - Hexo</title>
+  <title>Eclipse x GitHub - Hexo</title>
   
     <link rel="shortcut icon" href="/favicon.png">
   
@@ -16,13 +16,17 @@
   
   
   
-  <meta property="og:title" content="Archives: 2021/2 - Hexo" />
+  <meta property="og:title" content="Eclipse x GitHub - Hexo" />
   
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   
-  <meta property="og:url" content="http://example.com/archives/2021/02/index.html" />
+  <meta property="og:url" content="http://example.com/2021/09/24/2021-9-24-eclipse-x-github/index.html" />
   
   <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2021-09-24T09:54:24.000Z" />
+  
+  <meta property="og:article:author" content="John Doe" />
   
   
 
@@ -70,10 +74,6 @@
 <link rel="stylesheet" href="/css/post.css">
 
   
-  
-  
-<link rel="stylesheet" href="/css/archive.css">
-
   
   
   
@@ -147,192 +147,131 @@
         </div>
     </div>
 </nav>
-        <div class="container">
+        
+<article class="post">
     <div class="meta">
-        <div class="type">
-            
-            
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/HZNU/">HZNU</a>
+        
         </div>
+        
 
-        <h2 class="title">Archives</h2>
+        
+        <div class="date" id="date">
+            <span>September</span>
+            <span>24,</span>
+            <span>2021</span>
+        </div>
+        
+
+        <h2 class="title">Eclipse x GitHub</h2>
     </div>
 
     <div class="divider"></div>
 
-    <div class="post-list archives">
+    <div class="content">
+        <h1 id="Eclipse-x-GitHub"><a href="#Eclipse-x-GitHub" class="headerlink" title="Eclipse x GitHub"></a>Eclipse x GitHub</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>配置 Java 编译环境要安装两个东西：JDK 和 Eclipse（或其他编译器）</p>
+<p>JDK：<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html">https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html</a></p>
+<p>Eclipse：<a target="_blank" rel="noopener" href="https://www.eclipse.org/downloads/">https://www.eclipse.org/downloads/</a></p>
+<p>按提示完成两个程序的安装</p>
+<h3 id="EGit"><a href="#EGit" class="headerlink" title="EGit"></a>EGit</h3><ul>
+<li><code>Help - Install New Software - Add</code></li>
+<li>Name：EGit</li>
+<li>Location：<a target="_blank" rel="noopener" href="http://download.eclipse.org/egit/updates">http://download.eclipse.org/egit/updates</a></li>
+<li><code>Add</code></li>
+</ul>
+<h2 id="编写程序"><a href="#编写程序" class="headerlink" title="编写程序"></a>编写程序</h2><p>软件安装完成后打开 Eclipse</p>
+<ol>
+<li><p>点击 <code>File - New - Java Project</code> 输入 Project name，<code>Finish</code>，提示 Create module-info.java 点击 <code>Create</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924182700.png"></p>
+</li>
+<li><p>右键单击 <code>Project name</code>，点击 <code>New - Class</code>，填写 Package 栏及 Name 栏，勾选 <code>public static void main(String[] args)</code>，<code>Finish</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924182735.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924182812.png"></p>
+</li>
+<li><p>输入程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Git_Demo_Package;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Helloworld</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>Run - Run As - Java Application</code> 运行程序</p>
+</li>
+</ol>
+<h2 id="将代码提交到本地的-Git-仓库中"><a href="#将代码提交到本地的-Git-仓库中" class="headerlink" title="将代码提交到本地的 Git 仓库中"></a>将代码提交到本地的 Git 仓库中</h2><p>右键单击项目，<code>Team - Share Project</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924182952.png"></p>
+<p>右键单击项目，<code>Team - Commit</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924183126.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924183125.png"></p>
+<h2 id="连接-GitHub"><a href="#连接-GitHub" class="headerlink" title="连接 GitHub"></a>连接 GitHub</h2><h3 id="注册-GitHub-帐号"><a href="#注册-GitHub-帐号" class="headerlink" title="注册 GitHub 帐号"></a>注册 GitHub 帐号</h3><p>略</p>
+<h3 id="新建-Repo"><a href="#新建-Repo" class="headerlink" title="新建 Repo"></a>新建 Repo</h3><p><code>New Repository</code></p>
+<p>输入 Repo 的名字</p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924182848.png"></p>
+<p><code>Create repository</code></p>
+<p>保存 Repo 的 URL</p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924182849.png"></p>
+<p><code>Preferences - Team - Git - Configuration - Add Entry</code> 填写用户名</p>
+<h3 id="上传代码"><a href="#上传代码" class="headerlink" title="上传代码"></a>上传代码</h3><p>右键单击项目，<code>Team - Remote - Push</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924183149.png"></p>
+<p>URI：项目网址</p>
+<p>Username：用户名</p>
+<p>Password：密码</p>
+<p><code>Next</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924183150.png"></p>
+<p><code>Next</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924183151.png"></p>
+<p><code>Finish</code></p>
+<p>前往 GitHub 查看，已成功上传代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210924183455.png"></p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by John Doe, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
         
-        <article class="post-list-item">
-            <a href="/2021/02/21/2021-2-21-ji-suan-ji-he/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        计算几何
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;21,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
-                </div>
-            </a>
-        </article>
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/Eclipse/" class="tag">#Eclipse</a><a href="/tags/Git/" class="tag">#Git</a>
+        </p>
         
-        <article class="post-list-item">
-            <a href="/2021/02/20/2021-2-20-bo-yi-lun/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        博弈论
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;20,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
-                </div>
-            </a>
-        </article>
+    </div>
+    
+
+    <div class="container post-prev-next">
         
-        <article class="post-list-item">
-            <a href="/2021/02/20/2021-2-20/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        2021.2.20
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;20,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
+        <a href="/2021/11/05/2021-11-05-regex-in-java/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">JAVA 正则表达式</h3>
                 </div>
-            </a>
-        </article>
+            </div>
+        </a>
         
-        <article class="post-list-item">
-            <a href="/2021/02/04/2021-2-4-lca/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        LCA
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;4,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
-                </div>
-            </a>
-        </article>
         
-        <article class="post-list-item">
-            <a href="/2021/02/04/2021-2-4/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        2021.2.4
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;4,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
+        <a href="/2021/07/22/2021-7-22-er-fen-tu/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">二分图</>
                 </div>
-            </a>
-        </article>
-        
-        <article class="post-list-item">
-            <a href="/2021/02/03/2021-2-3-shu-lun/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        2021.2.3
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;3,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
-                </div>
-            </a>
-        </article>
-        
-        <article class="post-list-item">
-            <a href="/2021/02/02/2021-2-2/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>ACM</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        2021.2.2
-                    </div>
-                    
-                    <div class="time">
-                        <span>February</span>
-                        <span>&nbsp;2,&nbsp;</span>
-                        <span>2021</span>
-                    </div>
-                </div>
-            </a>
-        </article>
+            </div>
+        </a>
         
     </div>
 
     
-</div>
+        
+        
+    
+</article>
+
         <footer>
     <div class="inner">
         <div class="links">

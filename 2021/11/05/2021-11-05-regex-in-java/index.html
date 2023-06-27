@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>JAVA 正则表达式 - Hexo</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="JAVA 正则表达式 - Hexo" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://example.com/2021/11/05/2021-11-05-regex-in-java/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2021-11-05T12:31:34.000Z" />
+  
+  <meta property="og:article:author" content="John Doe" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/MrWillCom" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-codepen nav-item-icon" href="https://codepen.io/mrwillcom" target="_blank" aria-label="CodePen">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-patreon nav-item-icon" href="https://www.patreon.com/MrWillCom" target="_blank" aria-label="Patreon">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-mastodon nav-item-icon" href="https://noc.social/@MrWillCom" target="_blank" aria-label="Mastodon">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-discord nav-item-icon" href="https://discord.gg/UKuFDjcfY8" target="_blank" aria-label="Discord">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/HZNU/">HZNU</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>November</span>
+            <span>5,</span>
+            <span>2021</span>
+        </div>
+        
+
+        <h2 class="title">JAVA 正则表达式</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="JAVA-正则表达式"><a href="#JAVA-正则表达式" class="headerlink" title="JAVA 正则表达式"></a>JAVA 正则表达式</h1><p>正则表达式用作字符串的搜索模式。使用正则表达式，我们也可以找到单个匹配项或多个匹配项。我们可以在字符串中查找任何最大匹配项，例如简单的字符、固定字符串或任何复杂的字符模式，如电子邮件、SSN 或域名。</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式是强大、灵活和高效的文本处理的关键。它允许您描述和解析文本。正则表达式可以添加、删除、隔离，通常折叠、主轴和残害各种文本和数据。</p>
+<h3 id="元字符和文字"><a href="#元字符和文字" class="headerlink" title="元字符和文字"></a>元字符和文字</h3><p>全正则表达式由两种类型的字符组成。</p>
+<ul>
+<li>特殊字符（如文件名类比中的 *）称为元字符。</li>
+<li>其余称为文本字符或普通文本字符。</li>
+</ul>
+<p>正则表达式从其元字符提供的高级表达能力中非常有用。我们可以把字面文本视为单词，将元字符视为语法。这些单词根据一套规则与语法相结合，以创建一个传达想法的表达式。</p>
+<h2 id="正则表达式元字符"><a href="#正则表达式元字符" class="headerlink" title="正则表达式元字符"></a>正则表达式元字符</h2><p>让我们探索常用的元字符，以更好地理解它们。</p>
+<h3 id="开始和结束"><a href="#开始和结束" class="headerlink" title="开始和结束"></a>开始和结束</h3><p>开头和结尾用 <code>^</code> 和 <code>$</code> 符号表示。插入符号和美元很特别，因为它们与行中的位置匹配，而不是任何实际文本字符本身。</p>
+<p>例如，正则表达式 <code>cat</code> 在字符串的任何地方找到 <code>cat</code>，但只有当 <code>cat</code> 位于行的开头时，<code>^cat</code> 才会匹配，例如<code>类别</code>或<code>目录</code>等单词。</p>
+<p>同样，只有当 <code>cat</code> 在行末尾时，<code>cat</code> 才会匹配，例如像 <code>cat</code> 这样的单词。</p>
+<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>正则表达式构造 <code>···</code> 通常称为字符类，允许我们在比赛的那个时候列出我们想要允许的字符。字符类在创建拼写检查器方面非常有用。</p>
+<p>例如，<code>e</code> 只匹配 <code>e</code>，<code>a</code> 只匹配 <code>a</code>，但正则表达式 <code>ea</code> 均匹配。例如，<code>sep[ea]r[ea]te</code> 将匹配所有 <code>seperate</code>、<code>separate</code> 和 <code>separete</code>。</p>
+<p>另一个例子可以是允许单词的第一个字母大写，例如 <code>[Ss]mith</code> 会允许 <code>smith</code> 和 <code>Smith</code> 这两个词。</p>
+<p>同样，&lt;[hH][123456]&gt; 将匹配所有标题标签，即 H1、H2、H3、H4、H5 和 H6。</p>
+<h4 id="字符范围"><a href="#字符范围" class="headerlink" title="字符范围"></a>字符范围</h4><p>破折号 “ - “ 表示一系列字符。&lt;[hH][1-6]&gt; 类似于 &lt;[hH][123456]&gt;。其他有用的字符范围是 [0-9] 和 [a-z]，它们匹配数字和英语小写字母。</p>
+<p>我们可以在单个构造中指定多个范围，例如 [0123456789abcdefABCDEF] 可以写成 [0-9a-fA-F]。请注意，给出范围的顺序无关紧要。</p>
+<p>请注意，破折号仅在字符类中是一个元字符，否则它与普通破折号字符匹配。此外，如果它是范围中列出的第一个字符，它可能无法指示范围，因此在这种情况下，它不会是元字符。</p>
+<h4 id="被否定的字符类"><a href="#被否定的字符类" class="headerlink" title="被否定的字符类"></a>被否定的字符类</h4><p>如果我们在字符类中使用否定符号 ( ^ ) 则该类匹配未列出的任何字符。例如 [^1-6] 匹配非 1 到 6 的字符。</p>
+<h3 id="将任何字符与点匹配"><a href="#将任何字符与点匹配" class="headerlink" title="将任何字符与点匹配"></a>将任何字符与点匹配</h3><p>元字符 <code>.</code> 是匹配任何字符的字符类的缩写。请注意，当点在字符类中使用时，它们不是元字符。在字符类中，它只是一个简单的字符。</p>
+<p>例如，06.24.2019 将与 06&#x2F;24&#x2F;2019 或 06-24-2019 或 201906.24.2019 相匹配。但是 06[.]24[.]2019 仅匹配 06.24.2019。</p>
+<h3 id="匹配交替-–-几个子表达式中的任何一个"><a href="#匹配交替-–-几个子表达式中的任何一个" class="headerlink" title="匹配交替 – 几个子表达式中的任何一个"></a>匹配交替 – 几个子表达式中的任何一个</h3><p>管道符号 <code>|</code> 允许您将多个表达式组合成一个与任何单个表达式匹配的表达式。</p>
+<p>例如，<code>Alex</code> 和 <code>Brian </code>是单独的表达式，但 <code>Alex|Brian</code> 是两者中任何一个匹配的表达式。</p>
+<p>与点类似，管道在字符类中使用时不是元字符。在字符类中，它只是一个简单的字符。</p>
+<p>例如，为了匹配 <code>First</code> 或 <code>1st</code> 这两个词，我们可以写正则表达式——<code>(First|1st)</code>或速记 <code>(Fir|1)st</code></p>
+<h2 id="正则表达式语法"><a href="#正则表达式语法" class="headerlink" title="正则表达式语法"></a>正则表达式语法</h2><h3 id="预定义字符类"><a href="#预定义字符类" class="headerlink" title="预定义字符类"></a>预定义字符类</h3><table>
+<thead>
+<tr>
+<th><strong>.</strong></th>
+<th><strong>任何字符(与行结束符可能匹配可能不匹配)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>\d</strong></td>
+<td><strong>数字[0-9]</strong></td>
+</tr>
+<tr>
+<td><strong>\D</strong></td>
+<td><strong>非数字[^0-9]</strong></td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td><strong>空白字符[\t\n\f\r]</strong></td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td><strong>单词字符[a-zA-Z_0-9]</strong></td>
+</tr>
+<tr>
+<td><strong>\W</strong></td>
+<td><strong>非单词字符[^\w]</strong></td>
+</tr>
+</tbody></table>
+<h3 id="Greedy-数量词"><a href="#Greedy-数量词" class="headerlink" title="Greedy 数量词"></a>Greedy 数量词</h3><table>
+<thead>
+<tr>
+<th><strong>X?</strong></th>
+<th><strong>X，一次或一次没有</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>X*</strong></td>
+<td><strong>X，零次或多次</strong></td>
+</tr>
+<tr>
+<td><strong>X+</strong></td>
+<td><strong>X，一次或多次</strong></td>
+</tr>
+<tr>
+<td><strong>X{n}</strong></td>
+<td><strong>X，恰好n次</strong></td>
+</tr>
+<tr>
+<td><strong>X{n,}</strong></td>
+<td><strong>X，至少n次</strong></td>
+</tr>
+<tr>
+<td><strong>X{n,m}</strong></td>
+<td><strong>X，至少n次，但是不超过m次</strong></td>
+</tr>
+</tbody></table>
+<h3 id="范围词"><a href="#范围词" class="headerlink" title="范围词"></a>范围词</h3><table>
+<thead>
+<tr>
+<th><strong>[abc]</strong></th>
+<th><strong>a、b或c(简单类)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>[^abc]</strong></td>
+<td><strong>任何字符，除了a、b或c(否定)</strong></td>
+</tr>
+<tr>
+<td><strong>[a-zA-Z]</strong></td>
+<td><strong>a到z 或 A-Z，两头字母包括在内(范围)</strong></td>
+</tr>
+<tr>
+<td><strong>[a-d[m-p]]</strong></td>
+<td><strong>a到d 或 m到p ：<a href="%E5%B9%B6%E9%9B%86">a-dm-p</a></strong></td>
+</tr>
+<tr>
+<td><strong>[a-z&amp;&amp;[def]]</strong></td>
+<td><strong>d、e或f(交集)</strong></td>
+</tr>
+</tbody></table>
+<h3 id="边界匹配器"><a href="#边界匹配器" class="headerlink" title="边界匹配器"></a>边界匹配器</h3><table>
+<thead>
+<tr>
+<th>^</th>
+<th><strong>行的开头</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>$</strong></td>
+<td><strong>行的结尾</strong></td>
+</tr>
+<tr>
+<td><strong>\b</strong></td>
+<td><strong>单词的边界</strong></td>
+</tr>
+<tr>
+<td><strong>\B</strong></td>
+<td><strong>非单词边界</strong></td>
+</tr>
+<tr>
+<td><strong>\A</strong></td>
+<td><strong>输入的开头</strong></td>
+</tr>
+<tr>
+<td><strong>\G</strong></td>
+<td><strong>上一个匹配的结尾</strong></td>
+</tr>
+<tr>
+<td><strong>\Z</strong></td>
+<td><strong>输入的结尾，仅用于最后的结束符(如果有的话)</strong></td>
+</tr>
+<tr>
+<td><strong>\z</strong></td>
+<td><strong>输入的结尾</strong></td>
+</tr>
+</tbody></table>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="电子邮件地址的正则表达式"><a href="#电子邮件地址的正则表达式" class="headerlink" title="电子邮件地址的正则表达式"></a>电子邮件地址的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[a-zA-Z0-9_！#$%&amp;&#x27;*+/=?`&#123;|&#125;~^.-]+@[a-zA-Z0-9.-]+$</span><br></pre></td></tr></table></figure>
+
+<h3 id="密码验证的正则表达式"><a href="#密码验证的正则表达式" class="headerlink" title="密码验证的正则表达式"></a>密码验证的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（（？=.*[a-z]）（？=.*d）（？=。*[@#$%]）（？=。*[A-Z]）。&#123;6,16&#125;）</span><br></pre></td></tr></table></figure>
+
+<h3 id="商标符号的正则表达式"><a href="#商标符号的正则表达式" class="headerlink" title="商标符号的正则表达式"></a>商标符号的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\u2122</span><br></pre></td></tr></table></figure>
+
+<h3 id="任何货币符号的正则表达式"><a href="#任何货币符号的正则表达式" class="headerlink" title="任何货币符号的正则表达式"></a>任何货币符号的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\p&#123;Sc&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="“希腊扩展”或希腊字母中任何字符的正则表达式"><a href="#“希腊扩展”或希腊字母中任何字符的正则表达式" class="headerlink" title="“希腊扩展”或希腊字母中任何字符的正则表达式"></a>“希腊扩展”或希腊字母中任何字符的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\p&#123;InGreek&#125;和\\p&#123;InGreekExtended&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="北美电话号码的正则表达式"><a href="#北美电话号码的正则表达式" class="headerlink" title="北美电话号码的正则表达式"></a>北美电话号码的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\\(?([0-9]&#123;3&#125;)\\)?[-.\\s]?([0-9]&#123;3&#125;）[-.\\s]?([0-9]&#123;4&#125;）$</span><br></pre></td></tr></table></figure>
+
+<h3 id="国际电话号码的正则表达式"><a href="#国际电话号码的正则表达式" class="headerlink" title="国际电话号码的正则表达式"></a>国际电话号码的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\+(?:[0-9]?)&#123;6,14&#125;[0-9]$</span><br></pre></td></tr></table></figure>
+
+<h3 id="日期格式的正则表达式"><a href="#日期格式的正则表达式" class="headerlink" title="日期格式的正则表达式"></a>日期格式的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[0-3]？[0-9]/[0-3]？[0-9]/(?:[0-9]&#123;2&#125;)?[0-9]&#123;2&#125;美元</span><br></pre></td></tr></table></figure>
+
+<h3 id="社会保障号码（SSN）的正则表达式"><a href="#社会保障号码（SSN）的正则表达式" class="headerlink" title="社会保障号码（SSN）的正则表达式"></a>社会保障号码（SSN）的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(?!000|666）[0-8][0-9]&#123;2&#125;-(?!00）[0-9]&#123;2&#125;-(?!0000）[0-9]&#123;4&#125;$</span><br></pre></td></tr></table></figure>
+
+<h3 id="国际标准书号（ISBN）的正则表达式"><a href="#国际标准书号（ISBN）的正则表达式" class="headerlink" title="国际标准书号（ISBN）的正则表达式"></a>国际标准书号（ISBN）的正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(?:ISBN(?:-1[03])?:?）？（？=[0-9X]&#123;10&#125;$|(?=(?:[0-9]+[- ])&#123;3&#125;)[- 0-9X]&#123;13&#125;$|97[89][0-9]&#123;10&#125;$|(?=(?:[0-9]+[-])&#123;4&#125;)[- 0-9]&#123;17&#125;$)(?:97[89][- ]?)?[0-9]&#123;1,5&#125;[-]？[0-9]+[-]？[0-9]+[-]？[0-9X]$</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by John Doe, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/JAVA/" class="tag">#JAVA</a><a href="/tags/Regex/" class="tag">#Regex</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2021/12/06/2021-12-06-abstract-class-in-java/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">JAVA 抽象类与接口</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2021/09/24/2021-9-24-eclipse-x-github/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Eclipse x GitHub</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Projects</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://codepen.io/mrwillcom" class="item">CodePen</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.patreon.com/MrWillCom" class="item">Patreon</a>
+                
+                <a target="_blank" rel="noopener" href="https://noc.social/@MrWillCom" class="item">Mastodon</a>
+                
+                <a target="_blank" rel="noopener" href="https://discord.gg/UKuFDjcfY8" class="item">Discord</a>
+                
+                <a href="mailto:mr.will.com@outlook.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2023 John Doe<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
