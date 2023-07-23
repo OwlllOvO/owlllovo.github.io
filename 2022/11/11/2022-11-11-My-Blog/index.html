@@ -161,29 +161,30 @@
 <h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><ol start="0">
 <li><p>安装所需软件</p>
 <ul>
-<li><p>Node.js</p>
-<p>下载地址 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodejs.org</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a></p>
 </li>
 <li><p>Hexo-CLI</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>新建博客文件夹</p>
-<p>文件夹可以取任意名字，可以放在任何位置</p>
-<p>博客的所有文件都会存储在这个文件夹内，所以出了任何状况都可以把这个文件夹删除从头开始</p>
-<p>文件夹可以移动到其他位置如另一台电脑继续使用</p>
-</li>
-<li><p>在终端中进入这个文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &lt;Blog&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>文件夹可以取任意名字，可以放在任何位置</li>
+</ol>
+<ul>
+<li>博客的所有文件都会存储在这个文件夹内，所以出了任何状况都可以把这个文件夹删除从头开始</li>
+</ul>
 </li>
 <li><p>初始化 Hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;Blog&gt;</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p>此时博客文件夹内会自动生成大量文件</p>
 <p>初始化完成即可本地启动博客</p>
-<ol>
-<li><p>终端中输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server		# server 可简写为 s</span><br></pre></td></tr></table></figure>
-</li>
+
+<ol>
 <li><p>打开浏览器，访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a></p>
 </li>
 <li><p>可以看到博客的本地预览，初始化的时候已经自动生成了一篇文章 <em><strong>Hello World</strong></em></p>
@@ -280,7 +281,7 @@
 <li><p>GitHub 新建仓库</p>
 <p>可以取任意名字</p>
 </li>
-<li><p>打开 PicGO，<code>图床设置</code> <code>GitHub 图床</code> 按提示填入信息</p>
+<li><p>打开 PicGo，<code>图床设置</code> <code>GitHub 图床</code> 按提示填入信息</p>
 </li>
 <li><p>将图片拖入 PicGo，上传完成即可在相册中复制图片 URL</p>
 </li>

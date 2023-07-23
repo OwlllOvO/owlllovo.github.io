@@ -181,7 +181,7 @@
 
 
 
-<h3 id="Tarjan-•-离线"><a href="#Tarjan-•-离线" class="headerlink" title="Tarjan • 离线"></a>Tarjan • 离线</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><code>Tarjan 算法</code> 是一种 <code>离线算法</code>，需要使用 <code>并查集</code> 记录某个结点的祖先结点。做法如下：</p>
+<h3 id="Tarjan-·-离线"><a href="#Tarjan-·-离线" class="headerlink" title="Tarjan · 离线"></a>Tarjan · 离线</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><code>Tarjan 算法</code> 是一种 <code>离线算法</code>，需要使用 <code>并查集</code> 记录某个结点的祖先结点。做法如下：</p>
 <ol>
 <li>首先接受输入（邻接链表）、查询（存储在另一个邻接链表内）。查询边其实是虚拟加上去的边，为了方便，每次输入查询边的时候，将这个边及其反向边都加入到 <code>queryEdge</code> 数组里。</li>
 <li>然后对其进行一次 DFS 遍历，同时使用 <code>visited</code> 数组进行记录某个结点是否被访问过、<code>parent</code> 记录当前结点的父亲结点。</li>
