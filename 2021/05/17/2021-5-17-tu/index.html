@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>图 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="图简介相关概念图 · Graph 是一个二元组 $G \ &#x3D; \ (V(G), \ E(G))$。其中 $V(G)$ 是非空集，称为 点集 · Vertex set，对于 V 中的每个元素，我们称其为 顶点 · Vertex 或 节点 · Node，简称 点；$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 边集 · Edge set。 常用 $G \ &#x3D; \ (V,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图">
+<meta property="og:url" content="http://example.com/2021/05/17/2021-5-17-tu/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="图简介相关概念图 · Graph 是一个二元组 $G \ &#x3D; \ (V(G), \ E(G))$。其中 $V(G)$ 是非空集，称为 点集 · Vertex set，对于 V 中的每个元素，我们称其为 顶点 · Vertex 或 节点 · Node，简称 点；$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 边集 · Edge set。 常用 $G \ &#x3D; \ (V,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-17T11:01:00.000Z">
+<meta property="article:modified_time" content="2021-05-23T10:54:13.000Z">
+<meta property="article:author" content="OwlllOvO">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="图">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">OwlllOvO&#39;s Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2021-5-17-图" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/17/2021-5-17-tu/" class="article-date">
+  <time class="dt-published" datetime="2021-05-17T11:01:00.000Z" itemprop="datePublished">2021-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      图
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><p><strong>图 · Graph</strong> 是一个二元组 $G \ &#x3D; \ (V(G), \ E(G))$。其中 $V(G)$ 是非空集，称为 <strong>点集 · Vertex set</strong>，对于 V 中的每个元素，我们称其为 <strong>顶点 · Vertex</strong> 或 <strong>节点 · Node</strong>，简称 <strong>点</strong>；$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 <strong>边集 · Edge set</strong>。</p>
+<p>常用 $G \ &#x3D; \ (V, \ E)$ 表示图。</p>
+<p>当 V, E 都是有限集合时，称 G 为 <strong>有限图</strong>。</p>
+<p>当 V 或 E 是无限集合时，称 G 为 <strong>无限图</strong>。</p>
+<p>图有多种，包括 <strong>无向图 · Undirected graph</strong>，<strong>有向图 · Directed graph</strong>，<strong>混合图 · Mixed graph</strong> 等</p>
+<ul>
+<li>若 G 为无向图，则 E 中的每个元素为一个无序二元组 $(u, \ v)$，称作 <strong>无向边 · Undirected edge</strong>，简称 <strong>边 · Edge</strong>，其中 $u, \ v \ \in \ V$。设 $e \ &#x3D; \ (u, \ v)$，则 u 和 v 称为 e 的<strong>端点 · Endpoint</strong>。</li>
+<li>若 G 为有向图，则 E 中的每一个元素为一个有序二元组 $(u, \ v)$，有时也写作 $u \ \rightarrow \ v$，称作 <strong>有向边 · Directed edge</strong> 或 <strong>弧 · Arc</strong>，在不引起混淆的情况下也可以称作 <strong>边 · Edge</strong>。设 $e \ &#x3D; \ u \ \rightarrow \ v$，则此时 u 称为 e 的 <strong>起点 · Tail</strong>，v 称为 e 的 <strong>终点 · Head</strong>，起点和终点也称为 e 的 <strong>端点 · Endpoint</strong>。并称 u 是 v 的直接前驱，v 是 u 的直接后继。</li>
+<li>若 G 为混合图，则 E 中既有向边，又有无向边。</li>
+<li>若 G 的每条边 $e_{k} \ &#x3D; \ (u_{k}, \ v_{k})$ 都被赋予一个数作为该边的 <strong>权</strong>，则称 G 为 <strong>赋权图</strong>。如果这些权都是正实数，就称 G 为 <strong>正权图</strong>。</li>
+</ul>
+<p>图 G 的点数 $|V(G)|$ 也被称作图 G 的 <strong>阶 · Order</strong>。</p>
+<p>形象地说，图是由若干点以及连接点与点的边构成的。</p>
+<h3 id="度数"><a href="#度数" class="headerlink" title="度数"></a>度数</h3><p>与一个顶点 v 关联的边的条数称作该顶点的 <strong>度 · Degree</strong>，记作 $d(v)$。特别地，对于边 $(u, \ v)$，则每条这样的边要对 $d(v)$ 产生 2 的贡献。</p>
+<p>对于无向简单图，有 $d(v) \ &#x3D; \ |N(v)|$。</p>
+<p>握手定理（又称图论基本定理）：对于任何无向图 $G \ &#x3D; \ (V, \ E)$，有 $\sum_{v \ \in \ V}d(v) \ &#x3D; \ 2|E|$。</p>
+<p>推论：在任意图中，度数为奇数的点必然有偶数个。</p>
+<p>在有向图 $G \ &#x3D; \ (V, \ E)$ 中，以一个顶点 v 为起点的边的条数称为该顶点的 <strong>出度 · Out-degree</strong>，记作 $d^{+}(v)$。以一个顶点 v 为终点的边的条数称为该节点的 <strong>入度 · In-degree</strong>，记作 $d^{-}(v)$。显然 $d^{+}(v) \ + \ d^{-}(v) \ &#x3D;  \ d(v)$。</p>
+<p>对于任何有向图 $G \ &#x3D; \ (V, \ E)$，有：$\sum_{v \ \in \ V}d^{+}(v) \ &#x3D; \ \sum_{v \ \in \ V}d^{-}(v) \ &#x3D; \ |E|$</p>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><p>Chain · 链：一个点和边的交错序列 v<sub>0</sub> - e<sub>1</sub> - v<sub>1</sub> - e<sub>2</sub> - v<sub>2</sub> - … - e<sub>k</sub> - v<sub>k</sub></p>
+<p>Trail · 迹：对于一条路径 w，若e<sub>1</sub>, e<sub>2</sub>, …, e<sub>k</sub> 两两互不相同，则 w 是一条迹</p>
+<p>Path · 路径：对于一条迹 w，除了 v<sub>0</sub> 和 v<sub>k</sub> 允许相同外，其余点两两互不相同，则称 w 是一条路径</p>
+<p>Circuit · 回路：对于一个迹 w，若 v<sub>0</sub> &#x3D; v<sub>k</sub>，则称 w 是一个回路</p>
+<p>Cycle · 环：对于一条路径 w，若 v<sub>0</sub> &#x3D; v<sub>k</sub>，则称 w 是一个环</p>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h3 id="存边"><a href="#存边" class="headerlink" title="存边"></a>存边</h3><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>使用一个数组来存边，数组中的每个元素都包含一条边的起点与终点（带边权的图还包含边权）。（或者使用多个数组分别存起点，终点和边权。）</p>
+<h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> u, v;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">vector&lt;Edge&gt; e;</span><br><span class="line">vector&lt;<span class="type">bool</span>&gt; vis;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find_edge</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (e[i].u == u &amp;&amp; e[i].v == v)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (vis[u]) <span class="keyword">return</span>;</span><br><span class="line">	vis[u] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (e[i].u == u)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs</span>(e[i].v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">	vis.<span class="built_in">resize</span>(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">	e.<span class="built_in">resize</span>(m + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) cin &gt;&gt; e[i].u &gt;&gt; e[i].v;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p>查询是否存在某条边：$O(m)$。</p>
+<p>遍历一个点的所有出边：$O(m)$。</p>
+<p>遍历整张图：$O(nm)$。</p>
+<p>空间复杂度：$O(m)$。</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>由于直接存边的遍历效率低下，一般不用于遍历图。</p>
+<p>在 Kruskal 算法中，由于需要将边按边权排序，需要直接存边。</p>
+<p>在有的题目中，需要多次建图（如建一遍原图，建一遍反图），此时既可以使用多个其它数据结构来同时存储多张图，也可以将边直接存下来，需要重新建图时利用直接存下的边来建图。</p>
+<h3 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h3><h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h4><p>使用一个二维数组 <code>adj</code> 来存边，其中 <code>adj[u][v]</code> 为 1 表示存在 到 的边，为 0 表示不存在。如果是带边权的图，可以在 <code>adj[u][v]</code> 中存储 u 到 v 的边的边权。</p>
+<h4 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">vector&lt;<span class="type">bool</span>&gt; vis;</span><br><span class="line">vector&lt;vector&lt;<span class="type">bool</span>&gt; &gt; adj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find_edge</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span> </span>&#123; <span class="keyword">return</span> adj[u][v]; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (vis[u]) <span class="keyword">return</span>;</span><br><span class="line">	vis[u] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> v = <span class="number">1</span>; v &lt;= n; ++v)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (adj[u][v])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs</span>(v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">	vis.<span class="built_in">resize</span>(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">	adj.<span class="built_in">resize</span>(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> u, v;</span><br><span class="line">		cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">		adj[u][v] = <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h4><p>查询是否存在某条边：$O(1)$。</p>
+<p>遍历一个点的所有出边：$O(n)$。</p>
+<p>遍历整张图：$O(n^{2})$。</p>
+<p>空间复杂度：$O(n^{2})$。</p>
+<h4 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h4><p>邻接矩阵只适用于没有重边（或重边可以忽略）的情况。</p>
+<p>其最显著的优点是可以 $O(1)$ 查询一条边是否存在。</p>
+<p>由于邻接矩阵在稀疏图上效率很低（尤其是在点数较多的图上，空间无法承受），所以一般只会在稠密图上使用邻接矩阵。</p>
+<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h4><p>使用一个支持动态增加元素的数据结构构成的数组，如 <code>vector&lt;int&gt; adj[n + 1]</code> 来存边，其中 <code>adj[u]</code> 存储的是点 的所有出边的相关信息（终点、边权等）。</p>
+<h4 id="模板-2"><a href="#模板-2" class="headerlink" title="模板"></a>模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">vector&lt;<span class="type">bool</span>&gt; vis;</span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt; &gt; adj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find_edge</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; adj[u].<span class="built_in">size</span>(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (adj[u][i] == v)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (vis[u]) <span class="keyword">return</span>;</span><br><span class="line">	vis[u] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; adj[u].<span class="built_in">size</span>(); ++i) <span class="built_in">dfs</span>(adj[u][i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">	vis.<span class="built_in">resize</span>(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">	adj.<span class="built_in">resize</span>(n + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> u, v;</span><br><span class="line">		cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">		adj[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="复杂度-2"><a href="#复杂度-2" class="headerlink" title="复杂度"></a>复杂度</h4><p>查询是否存在 u 到 v 的边：$O(d^{+}(u))$（如果事先进行了排序就可以使用二分查找做到 ）。</p>
+<p>遍历点 u 的所有出边：$O(d^{+}(u))$。</p>
+<p>遍历整张图：$O(n \ + \ m)$。</p>
+<p>空间复杂度：$O(m)$。</p>
+<h4 id="应用-2"><a href="#应用-2" class="headerlink" title="应用"></a>应用</h4><p>存各种图都很适合，除非有特殊需求（如需要快速查询一条边是否存在，且点数较少，可以使用邻接矩阵）。</p>
+<p>尤其适用于需要对一个点的所有出边进行排序的场合。</p>
+<h3 id="链式前向星"><a href="#链式前向星" class="headerlink" title="链式前向星"></a>链式前向星</h3><h4 id="模板-3"><a href="#模板-3" class="headerlink" title="模板"></a>模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _CRTSECURE_NOWARNINGS</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> <span class="keyword">warning</span>(disable:4996)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;list&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;	<span class="comment">//n 个点，m 条单向边</span></span><br><span class="line"><span class="type">int</span> cnt;</span><br><span class="line"><span class="type">int</span> front[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">EDGE</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> to, next, w;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">EDGE edge[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(front, <span class="number">0</span>, <span class="built_in">sizeof</span>(front));</span><br><span class="line">	cnt = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_edge</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v, <span class="type">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	++cnt;</span><br><span class="line">	edge[cnt].to = v;</span><br><span class="line">	edge[cnt].w = w;</span><br><span class="line">	edge[cnt].next = front[u];</span><br><span class="line">	front[u] = cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">freopen</span>(<span class="string">&quot;in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">	<span class="built_in">Init</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> u, v, w;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;u, &amp;v, &amp;w);</span><br><span class="line">		<span class="built_in">add_edge</span>(u, v, w);</span><br><span class="line">		<span class="built_in">add_edge</span>(v, u, w);	<span class="comment">//双向边</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//遍历与每个点相连的所有边</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, i);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = front[i]; j; j = edge[j].next)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d %d %d\n&quot;</span>, i, edge[j].to, edge[j].w);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="复杂度-3"><a href="#复杂度-3" class="headerlink" title="复杂度"></a>复杂度</h4><p>查询是否存在 u 到 v 的边：$O(d^{+}(u))$。</p>
+<p>遍历点 的所有出边：$O(d^{+}(u))$。</p>
+<p>遍历整张图：$O(n \ + \ m)$。</p>
+<p>空间复杂度：$O(m)$。</p>
+<h4 id="应用-3"><a href="#应用-3" class="headerlink" title="应用"></a>应用</h4><p>存各种图都很适合，但不能快速查询一条边是否存在，也不能方便地对一个点的出边进行排序。</p>
+<p>优点是边是带编号的，有时会非常有用，而且如果 <code>cnt</code> 的初始值为奇数，存双向边时 <code>i ^ 1</code> 即是 <code>i</code> 的反边（常用于网络流）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/17/2021-5-17-tu/" data-id="clz6fe7hu001r0lox32sygtn7" data-title="图" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/19/2021-5-19-zi-dian-shu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          字典树
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/13/2021-5-13-ac-zi-dong-ji/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AC 自动机</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM/">ACM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HZNU/">HZNU</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Manual/">Manual</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/01%E8%83%8C%E5%8C%85/" rel="tag">01背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" rel="tag">AC 自动机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Abstract-class/" rel="tag">Abstract class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Account/" rel="tag">Account</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/" rel="tag">App</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/" rel="tag">Eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Email/" rel="tag">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floyd/" rel="tag">Floyd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kruskal/" rel="tag">Kruskal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCA/" rel="tag">LCA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MathJax/" rel="tag">MathJax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Media/" rel="tag">Media</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prim/" rel="tag">Prim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPFA/" rel="tag">SPFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/" rel="tag">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trie/" rel="tag">Trie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qBittorrent/" rel="tag">qBittorrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" rel="tag">二分图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4DP/" rel="tag">区间DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="tag">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" rel="tag">多重背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" rel="tag">完全背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" rel="tag">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag">快速幂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="tag">拓扑排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E4%BD%8D-DP/" rel="tag">数位 DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag">最小生成树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">逆序对</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/01%E8%83%8C%E5%8C%85/" style="font-size: 10px;">01背包</a> <a href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">AC 自动机</a> <a href="/tags/Abstract-class/" style="font-size: 10px;">Abstract class</a> <a href="/tags/Account/" style="font-size: 10px;">Account</a> <a href="/tags/App/" style="font-size: 13.33px;">App</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DP/" style="font-size: 16.67px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Floyd/" style="font-size: 10px;">Floyd</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/Kruskal/" style="font-size: 10px;">Kruskal</a> <a href="/tags/LCA/" style="font-size: 10px;">LCA</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/MathJax/" style="font-size: 10px;">MathJax</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/Prim/" style="font-size: 10px;">Prim</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/SPFA/" style="font-size: 10px;">SPFA</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/qBittorrent/" style="font-size: 10px;">qBittorrent</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 10px;">二分</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 10px;">二分图</a> <a href="/tags/%E5%8C%BA%E9%97%B4DP/" style="font-size: 10px;">区间DP</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 10px;">博弈论</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" style="font-size: 10px;">多重背包</a> <a href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" style="font-size: 10px;">完全背包</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">归并排序</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 10px;">快速幂</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 10px;">搜索</a> <a href="/tags/%E6%95%B0%E4%BD%8D-DP/" style="font-size: 10px;">数位 DP</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 10px;">最小生成树</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 10px;">计算几何</a> <a href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">逆序对</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/07/25/2024-07-25-mac-manual/">Mac Manual</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/2024-07-12-emby/">Emby</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/02/2024-07-02-vps-xia-zai-ji/">VPS 下载机</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/17/2022-12-17-simplelogin/">SimpleLogin</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/11/2022-11-11-my-blog/">My Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 OwlllOvO<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Emby | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Emby配置好了下载机以后就可以非常方便的下载影片了，因此需要一个媒体软件来组织管理以及播放这些媒体 我选择的是 Emby，当然也可以选择 Plex 以及 Jellyfin 等  Emby 官网： Emby - The open media solution  实现效果 使用浏览器通过 emby.macmini 访问 Emby，进行浏览、管理等操作，但不用于播放                 使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emby">
+<meta property="og:url" content="http://example.com/2024/07/12/2024-07-12-emby/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Emby配置好了下载机以后就可以非常方便的下载影片了，因此需要一个媒体软件来组织管理以及播放这些媒体 我选择的是 Emby，当然也可以选择 Plex 以及 Jellyfin 等  Emby 官网： Emby - The open media solution  实现效果 使用浏览器通过 emby.macmini 访问 Emby，进行浏览、管理等操作，但不用于播放                 使">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131031152.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131033782.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131043346.png">
+<meta property="article:published_time" content="2024-07-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-14T07:06:05.000Z">
+<meta property="article:author" content="OwlllOvO">
+<meta property="article:tag" content="App">
+<meta property="article:tag" content="Media">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131031152.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">OwlllOvO&#39;s Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2024-07-12-Emby" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/2024-07-12-emby/" class="article-date">
+  <time class="dt-published" datetime="2024-07-11T16:00:00.000Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Tech/">Tech</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Emby
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Emby"><a href="#Emby" class="headerlink" title="Emby"></a>Emby</h1><p>配置好了下载机以后就可以非常方便的下载影片了，因此需要一个媒体软件来组织管理以及播放这些媒体</p>
+<p>我选择的是 Emby，当然也可以选择 <a target="_blank" rel="noopener" href="https://www.plex.tv/">Plex</a> 以及 <a target="_blank" rel="noopener" href="https://jellyfin.org/">Jellyfin</a> 等</p>
+<ul>
+<li>Emby 官网： <a target="_blank" rel="noopener" href="https://emby.media/">Emby - The open media solution</a></li>
+</ul>
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><ul>
+<li><p>使用浏览器通过 <a target="_blank" rel="noopener" href="http://emby.macmini/">emby.macmini</a> 访问 Emby，进行浏览、管理等操作，但不用于播放</p>
+  <div style="text-align: center;">
+        <img src="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131031152.png" alt="" style="max-width:100%; max-height:800px; height:auto;">
+  </div>
+</li>
+<li><p>使用播放器通过 <a target="_blank" rel="noopener" href="http://emby.macmini/">emby.macmini</a> 连接 Emby，播放影片</p>
+  <div style="text-align: center;">
+        <img src="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131033782.png" alt="" style="max-width:100%; max-height:800px; height:auto;">
+  </div></li>
+</ul>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul>
+<li><p>一台服务器</p>
+<p>  Emby Server 支持的平台非常多，Windows，macOS，Linux 以及各类 NAS 都可以运行，还可以通过 Docker 运行</p>
+<p>  系统支持列表详见：<a target="_blank" rel="noopener" href="https://emby.media/download.html">Download Emby - Emby</a></p>
+<ul>
+<li>连接有大容量硬盘存储影片</li>
+</ul>
+</li>
+<li><p>Emby 播放器</p>
+<p>  当然可以用 Emby 官方的客户端，只不过大部分功能都是需要付费的：<a target="_blank" rel="noopener" href="https://emby.media/download.html">Download Emby - Emby</a></p>
+<p>  而非常多第三方客户端也支持访问 Emby</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://firecore.com/infuse">Infuse</a>：使用体验甚至好于官方的 Emby App，但是收费也非常高</li>
+<li><a target="_blank" rel="noopener" href="https://fileball.app/">Fileball</a>：非常强大的播放器，价格也较为友好，如果只是想愉快的播放而对使用体验没有那么高要求，这款软件非常适合</li>
+</ul>
+</li>
+<li><p>（如果需要外网访问）内网穿透工具</p>
+</li>
+</ul>
+<h2 id="搭建-Emby"><a href="#搭建-Emby" class="headerlink" title="搭建 Emby"></a>搭建 Emby</h2><ul>
+<li>其中大部分设置都使用默认即可，部分个性化内容按照自己习惯设置，其他需要注意的点会单独说明</li>
+</ul>
+<ol>
+<li>安装 Emby Server：<a target="_blank" rel="noopener" href="https://emby.media/download.html">Download Emby - Emby</a></li>
+</ol>
+<p>  完成后会在浏览器中自动打开 Emby，或是手动通过 <a href="localhost:8096">localhost:8096</a> 访问</p>
+<ol start="2">
+<li><p>配置 Emby Server：首次打开跟随向导，配置用户、语言、媒体库等内容</p>
+</li>
+<li><p>添加媒体库，将电影、电视剧等类型文件夹添加到库中</p>
+</li>
+</ol>
+<p>  点击媒体库中扫描库文件，将文件夹内所有内容读取到 Emby 中</p>
+<ol start="4">
+<li><p>对各个库点击更新元数据，完成刮削</p>
+<p>  刮削完成后效果：</p>
+  <div style="text-align: center;">
+      <img src="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/202407131043346.png" alt="" style="max-width:100%; max-height:800px; height:auto;">
+  </div>
+</li>
+<li><p>（注意）如果没有开通 Emby Premier，且影片多为高画质，最好在用户设置中取消勾选</p>
+</li>
+</ol>
+<ul>
+<li><code>如有必要，在媒体播放期间允许音频转码</code></li>
+<li><code>如有必要，在媒体播放期间允许视频转码</code></li>
+<li><code>如有必要，在媒体播放期间允许更改容器格式</code></li>
+</ul>
+<p>  服务器端转码可以将原视频转码为低画质后串流，使得播放端可以选择清晰度和码率</p>
+<p>  但是硬件转码需要 Emby Premier，而如果使用软件转码，在播放高画质内容时会极度消耗电脑性能</p>
+<p>  经过测试至少我的 M1 Pro 无法满足流畅播放</p>
+<p>  关闭转码后会把原媒体文件原封不动传输到播放设备上，因此需要在网络良好且流量充足的情况下观看</p>
+<ol start="6">
+<li><p>现在，可以使用播放器通过 Emby Server 的内网 IP，8096 端口访问 Emby，开始观看影片</p>
+</li>
+<li><p>（可选，建议）配置 Open Subtitles</p>
+<ol>
+<li>转到 Emby 设置，Open Subtitles</li>
+<li>点击注册账号，跳转 <a target="_blank" rel="noopener" href="http://www.opensubtitles.com/">opensubtitles.com</a> 注册</li>
+<li>回到 Emby，填入账号密码，点击保存</li>
+</ol>
+</li>
+<li><p>（如果需要外网访问）配置内网穿透，以我的内网穿透工具及设备名为例：</p>
+</li>
+<li><p>在服务器上添加 Nginx 配置，监听 <code>emby.macmini</code>，转发到本机 8096 端口</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line"> <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line"> <span class="attribute">server_name</span> emby.macmini;</span><br><span class="line"></span><br><span class="line"> <span class="section">location</span> / &#123;</span><br><span class="line">	 <span class="attribute">proxy_pass</span> http://localhost:8096;</span><br><span class="line">	 <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">	 <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">	 <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">	 <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在播放设备上使用 <code>emby.macmini</code> 访问 Mac mini 上的 Emby 服务</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/2024-07-12-emby/" data-id="clz6fe7hy002r0loxcxqh7bk8" data-title="Emby" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/App/" rel="tag">App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Media/" rel="tag">Media</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/07/25/2024-07-25-mac-manual/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mac Manual
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/07/02/2024-07-02-vps-xia-zai-ji/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">VPS 下载机</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM/">ACM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HZNU/">HZNU</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Manual/">Manual</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/01%E8%83%8C%E5%8C%85/" rel="tag">01背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" rel="tag">AC 自动机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Abstract-class/" rel="tag">Abstract class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Account/" rel="tag">Account</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/" rel="tag">App</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/" rel="tag">Eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Email/" rel="tag">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floyd/" rel="tag">Floyd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kruskal/" rel="tag">Kruskal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCA/" rel="tag">LCA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MathJax/" rel="tag">MathJax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Media/" rel="tag">Media</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prim/" rel="tag">Prim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPFA/" rel="tag">SPFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/" rel="tag">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trie/" rel="tag">Trie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qBittorrent/" rel="tag">qBittorrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" rel="tag">二分图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4DP/" rel="tag">区间DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="tag">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" rel="tag">多重背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" rel="tag">完全背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" rel="tag">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag">快速幂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="tag">拓扑排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E4%BD%8D-DP/" rel="tag">数位 DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag">最小生成树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">逆序对</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/01%E8%83%8C%E5%8C%85/" style="font-size: 10px;">01背包</a> <a href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">AC 自动机</a> <a href="/tags/Abstract-class/" style="font-size: 10px;">Abstract class</a> <a href="/tags/Account/" style="font-size: 10px;">Account</a> <a href="/tags/App/" style="font-size: 13.33px;">App</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DP/" style="font-size: 16.67px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Floyd/" style="font-size: 10px;">Floyd</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/Kruskal/" style="font-size: 10px;">Kruskal</a> <a href="/tags/LCA/" style="font-size: 10px;">LCA</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/MathJax/" style="font-size: 10px;">MathJax</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/Prim/" style="font-size: 10px;">Prim</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/SPFA/" style="font-size: 10px;">SPFA</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/qBittorrent/" style="font-size: 10px;">qBittorrent</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 10px;">二分</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 10px;">二分图</a> <a href="/tags/%E5%8C%BA%E9%97%B4DP/" style="font-size: 10px;">区间DP</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 10px;">博弈论</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" style="font-size: 10px;">多重背包</a> <a href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" style="font-size: 10px;">完全背包</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">归并排序</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 10px;">快速幂</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 10px;">搜索</a> <a href="/tags/%E6%95%B0%E4%BD%8D-DP/" style="font-size: 10px;">数位 DP</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 10px;">最小生成树</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 10px;">计算几何</a> <a href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">逆序对</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/07/25/2024-07-25-mac-manual/">Mac Manual</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/2024-07-12-emby/">Emby</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/02/2024-07-02-vps-xia-zai-ji/">VPS 下载机</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/17/2022-12-17-simplelogin/">SimpleLogin</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/11/2022-11-11-my-blog/">My Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 OwlllOvO<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

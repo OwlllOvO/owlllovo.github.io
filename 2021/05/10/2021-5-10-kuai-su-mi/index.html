@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>快速幂 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="快速幂简介快速幂，二进制取幂（Binary Exponentiation，也称平方法），是一个在 $O(log \ n)$ 的时间内计算 $a^{n}$ 的小技巧，而暴力的计算需要 $O(n)$ 的时间。而这个技巧也常常用在非计算的场景，因为它可以应用在任何具有结合律的运算中。其中显然的是它可以应用于模意义下取幂、矩阵幂等运算，我们接下来会讨论。 算法计算 a 的 n 次方表示将 n 个 a 乘在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速幂">
+<meta property="og:url" content="http://example.com/2021/05/10/2021-5-10-kuai-su-mi/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="快速幂简介快速幂，二进制取幂（Binary Exponentiation，也称平方法），是一个在 $O(log \ n)$ 的时间内计算 $a^{n}$ 的小技巧，而暴力的计算需要 $O(n)$ 的时间。而这个技巧也常常用在非计算的场景，因为它可以应用在任何具有结合律的运算中。其中显然的是它可以应用于模意义下取幂、矩阵幂等运算，我们接下来会讨论。 算法计算 a 的 n 次方表示将 n 个 a 乘在">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-10T10:44:40.000Z">
+<meta property="article:modified_time" content="2021-05-23T10:58:40.000Z">
+<meta property="article:author" content="OwlllOvO">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="快速幂">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">OwlllOvO&#39;s Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2021-5-10-快速幂" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/10/2021-5-10-kuai-su-mi/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T10:44:40.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      快速幂
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>快速幂，二进制取幂（Binary Exponentiation，也称平方法），是一个在 $O(log \ n)$ 的时间内计算 $a^{n}$ 的小技巧，而暴力的计算需要 $O(n)$ 的时间。而这个技巧也常常用在非计算的场景，因为它可以应用在任何具有结合律的运算中。其中显然的是它可以应用于模意义下取幂、矩阵幂等运算，我们接下来会讨论。</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>计算 a 的 n 次方表示将 n 个 a 乘在一起： $a^{n} \ &#x3D; a \ \times \ a \ \times \ \cdots \ \times \ a$ （n 个 a）</p>
+<p>然而当 a, n 太大的时侯，这种方法就不太适用了。不过我们知道：$a^{b+c} \ &#x3D; \ a^{b}\ \cdot \ a^{c}$, $a^{2b}\ &#x3D;\ a^{b}\ \cdot \ a^{b} \ &#x3D; \ (a^{b})^{2}$。二进制取幂的想法是，我们将取幂的任务按照指数的 <strong>二进制表示</strong> 来分割成更小的任务。</p>
+<p>首先我们将 n 表示为 2 进制，举一个例子：</p>
+<p>$3^{(13)<em>{10}} \ &#x3D; \ 3^{(1101)</em>{2}} \ &#x3D; \ 3^{8} \ \cdot \ 3^{4} \ \cdot \ 3^{1}$</p>
+<p>因为 n 有 $\lfloor \log_{2}n \rfloor \ + \ 1$ 个二进制位，因此当我们知道了 $a^{1}, \ a^{2}, \ a^{4}, \ a^{8}, \ \cdots, \ a^{2^{\lfloor\log_{2}n\rfloor}}, \ $后，我们只用计算 $O(\log n)$ 次乘法就可以计算出 $a^{n}$。</p>
+<p>于是我们只需要知道一个快速的方法来计算上述 3 的 $2^{k}$ 次幂的序列。这个问题很简单，因为序列中（除第一个）任意一个元素就是其前一个元素的平方。举一个例子：<br>$$<br>\begin{matrix}<br>3^{1} &amp; &#x3D; &amp; 3\<br>3^{2} &amp; &#x3D; &amp; (3^{1})^{2} &amp; &#x3D; &amp; 3^{2} &amp; &#x3D; &amp; 9\<br>3^{4} &amp; &#x3D; &amp; (3^{2})^{2} &amp; &#x3D; &amp; 9^{2} &amp; &#x3D; &amp; 81\<br>3^{8} &amp; &#x3D; &amp; (3^{4})^{2} &amp; &#x3D; &amp; 81^{2} &amp; &#x3D; &amp; 6561\<br>\end{matrix}<br>$$</p>
+<p>因此为了计算 $3^{13}$，我们只需要将对应二进制位为 1 的整系数幂乘起来就行了：</p>
+<p>$3^{13} \ &#x3D; \ 6561 \ \cdot \ 81 \ \cdot \ 3\ &#x3D; \ 1594323$</p>
+<p>将上述过程说得形式化一些，如果把 n 写作二进制为 $(n_{t}n_{t-1}\cdots n_{1}n_{0})$，那么有：</p>
+<p>$n \ &#x3D; \ n_{t}2^{t} \ + \ n_{t-1}2^{t-1} \ + \ n_{t-2}2^{t-2} \ + \ \cdots \ + \ n_{1}2^{1} \ + \ n_{0}2^{0}$</p>
+<p>其中 。那么就有</p>
+<p>$a^{n} \ &#x3D; \ (a^{n_{t}2^{t} \ + \ \cdots \ + \ n_{0}2^{0}}) \ &#x3D; \ a^{n_{0}2^{0}} \ \times \ a^{n_{1}2^{1}} \ \times \ \cdots \ \times \ a^{n_{t}2^{t}}$</p>
+<p>根据上式我们发现，原问题被我们转化成了形式相同的子问题的乘积，并且我们可以在常数时间内从 $2^{i}$ 项推出 $2^{i+1}$ 项。</p>
+<p>这个算法的复杂度是 $O(\log n)$ 的，我们计算了 $O(\log n)$ 个 $2^{k}$ 次幂的数，然后花费 $O(\log n)$ 的时间选择二进制为 1 对应的幂来相乘。</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul>
+<li><p>递归法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">binpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="built_in">binpow</span>(a, b / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (b % <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> res * res * a;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> res * res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>非递归法（稍快）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">binpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a;</span><br><span class="line">        a = a * a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="模意义下取幂"><a href="#模意义下取幂" class="headerlink" title="模意义下取幂"></a>模意义下取幂</h3><p>计算 $x^{n} \ mod \ m$</p>
+<p>这是一个非常常见的应用，例如它可以用于计算模意义下的乘法逆元。</p>
+<p>既然我们知道取模的运算不会干涉乘法运算，因此我们只需要在计算的过程中取模即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">binpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b, <span class="type">long</span> <span class="type">long</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a %= m;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a % m;</span><br><span class="line">        a = a * a % m;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：根据费马小定理，如果 m 是一个质数，我们可以计算 $x^{n \ mod \ (m-1)}$ 来加速算法过程。</p>
+<h3 id="模意义下大整数乘法"><a href="#模意义下大整数乘法" class="headerlink" title="模意义下大整数乘法"></a>模意义下大整数乘法</h3><p>计算 $a \ \times \ b \ mod \ m, \ a, \ b \ \leq \ m \ \leq \ 10^{18}$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/10/2021-5-10-kuai-su-mi/" data-id="clz6fe7hu001m0loxeszwhfun" data-title="快速幂" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag">快速幂</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/10/2021-5-10-mathjax/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MathJax
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/09/2021-5-9-shu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">树</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM/">ACM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HZNU/">HZNU</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Manual/">Manual</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/01%E8%83%8C%E5%8C%85/" rel="tag">01背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" rel="tag">AC 自动机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Abstract-class/" rel="tag">Abstract class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Account/" rel="tag">Account</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/" rel="tag">App</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/" rel="tag">Eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Email/" rel="tag">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floyd/" rel="tag">Floyd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kruskal/" rel="tag">Kruskal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCA/" rel="tag">LCA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MathJax/" rel="tag">MathJax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Media/" rel="tag">Media</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prim/" rel="tag">Prim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPFA/" rel="tag">SPFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/" rel="tag">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trie/" rel="tag">Trie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qBittorrent/" rel="tag">qBittorrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" rel="tag">二分图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4DP/" rel="tag">区间DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="tag">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" rel="tag">多重背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" rel="tag">完全背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" rel="tag">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag">快速幂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="tag">拓扑排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E4%BD%8D-DP/" rel="tag">数位 DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag">最小生成树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">逆序对</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/01%E8%83%8C%E5%8C%85/" style="font-size: 10px;">01背包</a> <a href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">AC 自动机</a> <a href="/tags/Abstract-class/" style="font-size: 10px;">Abstract class</a> <a href="/tags/Account/" style="font-size: 10px;">Account</a> <a href="/tags/App/" style="font-size: 13.33px;">App</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DP/" style="font-size: 16.67px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Floyd/" style="font-size: 10px;">Floyd</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/Kruskal/" style="font-size: 10px;">Kruskal</a> <a href="/tags/LCA/" style="font-size: 10px;">LCA</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/MathJax/" style="font-size: 10px;">MathJax</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/Prim/" style="font-size: 10px;">Prim</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/SPFA/" style="font-size: 10px;">SPFA</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/qBittorrent/" style="font-size: 10px;">qBittorrent</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 10px;">二分</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 10px;">二分图</a> <a href="/tags/%E5%8C%BA%E9%97%B4DP/" style="font-size: 10px;">区间DP</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 10px;">博弈论</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" style="font-size: 10px;">多重背包</a> <a href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" style="font-size: 10px;">完全背包</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">归并排序</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 10px;">快速幂</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 10px;">搜索</a> <a href="/tags/%E6%95%B0%E4%BD%8D-DP/" style="font-size: 10px;">数位 DP</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 10px;">最小生成树</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 10px;">计算几何</a> <a href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">逆序对</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/07/25/2024-07-25-mac-manual/">Mac Manual</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/2024-07-12-emby/">Emby</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/02/2024-07-02-vps-xia-zai-ji/">VPS 下载机</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/17/2022-12-17-simplelogin/">SimpleLogin</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/11/2022-11-11-my-blog/">My Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 OwlllOvO<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
