@@ -180,22 +180,21 @@
 <li><p>在外置硬盘创建存放文件夹，如 <code>Users</code></p>
 </li>
 <li><p>将个人文件夹拷贝到外置硬盘</p>
-</li>
-</ol>
 <ul>
 <li><p>使用 Finder</p>
 <p>在 Finder 中找到个人文件夹，使用 <code>⌘-C</code>, <code>⌘-V</code> 拷贝到外置硬盘</p>
 <p>如果遇到报错无法拷贝，可以使用 rsync 拷贝</p>
 </li>
 <li><p>使用 rsync</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -av /Users/&lt;Username&gt; /Volumes/&lt;Disk name&gt;/&lt;Users&gt;/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -av /Users/&lt;Username&gt; /Volumes/&lt;Disk name&gt;/&lt;Users&gt;/</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>&lt;Users&gt; 按照实际路径修改</li>
 <li>&lt;Username&gt; 后不加 <code>/</code>，&lt;Users&gt; 后加 <code>/</code></li>
 </ul>
 </li>
 </ul>
-<ol start="3">
+</li>
 <li><p>打开 <code>System Settings</code></p>
 </li>
 <li><p>点击 <code>Users &amp; Groups</code></p>
@@ -207,6 +206,89 @@
 <li><p>点击 <code>Unlock</code></p>
 </li>
 <li><p>将 <code>Home directory</code> 重新选择到外置硬盘的对应文件夹 <code>/Volumes/&lt;Disk name&gt;/&lt;Users&gt;/&lt;Username&gt;</code></p>
+</li>
+<li><p>重启 Mac</p>
+</li>
+</ol>
+<p>此时，个人文件夹已经转移到外置硬盘，可以查看外置硬盘上的个人文件夹图标，已经变成了房子图标</p>
+<p>原来的个人文件夹还在 Mac 内置硬盘上，正常使用一段时间后，可以将其删除</p>
+<h3 id="创建服务"><a href="#创建服务" class="headerlink" title="创建服务"></a>创建服务</h3><blockquote>
+<p>[!TIP]</p>
+<p>以 aria2 + AriaNg 为例</p>
+</blockquote>
+<p>实现效果：浏览器通过 ariang.local 访问 AriaNg</p>
+<hr>
+<ol>
+<li><p>配置 aria2</p>
+<ol>
+<li><p>安装 aria2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install aria2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 aria2 设置为开机自启动</p>
+<ol>
+<li><p>创建 aria2 执行程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/bin/</span><br><span class="line">vim /usr/local/bin/aria2c-default</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写入以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">aria2c --conf-path=/Users/&lt;username&gt;/&lt;.aria2&gt;/aria2.conf --enable-rpc --rpc-listen-all -D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>&lt;.aria2&gt; 替换为存储配置文件的实际地址</li>
+</ul>
+</li>
+<li><p>将 aria2c-default 赋予可执行权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /usr/local/bin/aria2c-default</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>前往 <code>System Settings</code>, <code>General</code>, <code>Login Items</code>，将 <code>aria2c-default</code> 添加到启动项</p>
+</li>
+</ol>
+</li>
+<li><p>添加 aria2 配置文件</p>
+</li>
+<li><p>启动 aria2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c-default</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>安装 AriaNg</p>
+<p>从 <a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases/latest">AriaNg Releases - GitHub</a> 下载 AllInOne 压缩包，解压后将文件夹放到 <code>/Applications</code></p>
+</li>
+<li><p>配置 Nginx</p>
+<ol>
+<li><p>安装 Nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install nginx</span><br><span class="line">brew services start nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新 Nginx 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /opt/homebrew/etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加以下内容</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  ariang.local;</span><br><span class="line">      </span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">root</span> /Applications/AriaNg;</span><br><span class="line">        <span class="attribute">index</span>  index.html;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="section">location</span> /jsonrpc &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:6800/jsonrpc;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试 Nginx 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>如果出现 success 则表示通过</p>
+</li>
+<li><p>重新加载 Nginx 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nginx -s reload</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>此时可以通过 ariang.local 访问 AriaNg</p>
+</li>
+</ol>
+<h3 id="Safari-图标打开新窗口"><a href="#Safari-图标打开新窗口" class="headerlink" title="Safari 图标打开新窗口"></a>Safari 图标打开新窗口</h3><ol>
+<li><p>打开 <code>Apple Script Editor</code></p>
+</li>
+<li><p>创建新脚本，写入以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;Safari&quot;</span><br><span class="line">    make new document</span><br><span class="line">    activate</span><br><span class="line">end tell</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>点击 <code>File</code>, <code>Export...</code>，为脚本起名如 <code>Safari - New Window</code></p>
+</li>
+<li><p>将脚本保存到 <code>Applications</code> 文件夹</p>
+</li>
+<li><p>选择保存格式为 <code>Application</code>，勾选 <code>Run-Only</code></p>
+</li>
+<li><p>在 Finder 里右键点击图标，<code>Get Info</code>，将图标换成 Safari</p>
+</li>
+<li><p>现在点击图标即可在新窗口打开 Safari</p>
 </li>
 </ol>
 <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="以太网断连"><a href="#以太网断连" class="headerlink" title="以太网断连"></a>以太网断连</h3><h4 id="相关信息"><a href="#相关信息" class="headerlink" title="相关信息"></a>相关信息</h4><ul>
@@ -243,6 +325,9 @@
 <p> macOS 默认为外置硬盘勾选 <code>Ignore ownership on this volume</code>，此选项会使得系统忽略文件的所有权，所有用户都和文件所有者保持相同的权限</p>
 </li>
 </ol>
+<h4 id="See-also-1"><a href="#See-also-1" class="headerlink" title="See also"></a>See also</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/guide/mac-help/permission-files-a-mac-disk-mchlp1204/mac">If you don’t have permission to use files on a Mac disk - Apple Support</a></li>
+</ul>
 
     </div>
 
