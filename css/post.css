@@ -353,11 +353,11 @@ body[data-color-scheme="dark"] .tags .icon {
 
 /* Modified */
 
-.divider {
-  display: none !important;
+.post .divider {
+  display: none;
 }
 
-.title {
+.post .content h1 {
   display: none;
 }
 
