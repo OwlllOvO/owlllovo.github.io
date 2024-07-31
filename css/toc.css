@@ -18,3 +18,16 @@
   text-decoration: none;
   border-color: var(--black-2);
 }
+
+.toc {
+  margin-top: calc(12.5vh + 48px);
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: calc(15vw); /* 调整宽度以适应 TOC 内容 */
+  padding: 16px;
+  background: var(--background-color); /* 背景色可以根据需求调整 */
+  border-left: 1px solid var(--border-color);
+  height: calc(75vh); /* 确保 TOC 高度充满视口 */
+  overflow-y: auto; /* 确保 TOC 内容超出时可以滚动 */
+}

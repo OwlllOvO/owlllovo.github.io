@@ -33,6 +33,7 @@ body {
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: 0.012em;
+  margin-right: calc(20vw); /* 根据 TOC 的宽度调整左侧边距 */
 }
 
 .content p,
@@ -348,4 +349,18 @@ body[data-color-scheme="dark"] .tags .icon {
 .post-prev-next .text .label {
   margin-bottom: 4px;
   color: var(--grey);
+}
+
+/* Modified */
+
+.divider {
+  display: none !important;
+}
+
+.title {
+  display: none;
+}
+
+.meta {
+  margin-right: calc(20vw);
 }

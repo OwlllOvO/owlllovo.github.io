@@ -118,41 +118,41 @@
     }
 
     if (document.body.attributes['data-toc']) {
-        const content = document.getElementsByClassName('content')[0]
-        const maxDepth = document.body.attributes['data-toc-max-depth'].value
+        const content = document.getElementsByClassName('content')[0];
+        const maxDepth = document.body.attributes['data-toc-max-depth'].value;
 
-        var headingSelector = ''
-        for (var i = 1; i <= maxDepth; i++) {
-            headingSelector += 'h' + i + ','
+        // 构建选择器
+        let headingSelector = '';
+        for (let i = 1; i <= maxDepth; i++) {
+            headingSelector += 'h' + i + ',';
         }
-        headingSelector = headingSelector.slice(0, -1)
-        const headings = content.querySelectorAll(headingSelector)
+        headingSelector = headingSelector.slice(0, -1); // 去掉最后一个逗号
 
-        var source = []
+        const headings = content.querySelectorAll(headingSelector);
+
+        const toc = document.createElement('div');
+        toc.classList.add('toc');
+
         headings.forEach((heading) => {
-            source.push({
-                html: heading.innerHTML,
-                href: heading.getElementsByClassName('headerlink')[0].attributes['href'].value
-            })
-        })
+            const level = parseInt(heading.tagName.slice(1), 10); // 获取标题级别
+            const p = document.createElement('p');
+            p.style.marginLeft = `${(level - 1) * 20}px`; // 根据级别设置缩进
 
-        const toc = document.createElement('div')
-        toc.classList.add('toc')
-        for (const i in source) {
-            const item = document.createElement('p')
-            const link = document.createElement('a')
-            link.href = source[i].href
-            link.innerHTML = source[i].html
-            link.removeChild(link.getElementsByClassName('headerlink')[0])
-            item.appendChild(link)
-            toc.appendChild(item)
-        }
+            const link = document.createElement('a');
+            link.href = heading.getElementsByClassName('headerlink')[0].attributes['href'].value;
+            link.innerHTML = heading.innerHTML;
+
+            // 添加到段落
+            p.appendChild(link);
+            toc.appendChild(p);
+        });
 
         if (toc.children.length != 0) {
-            document.getElementsByClassName('post')[0].getElementsByClassName('divider')[0].after(toc)
-            const divider = document.createElement('div')
-            divider.classList.add('divider')
-            toc.after(divider)
+            document.getElementsByClassName('post')[0].getElementsByClassName('divider')[0].after(toc);
+            const divider = document.createElement('div');
+            divider.classList.add('divider');
+            toc.after(divider);
         }
     }
+
 })()
