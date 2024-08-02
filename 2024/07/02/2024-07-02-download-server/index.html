@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   
-  <title>VPS 下载机 - Hexo</title>
+  <title>Download Server - Hexo</title>
   
     <link rel="shortcut icon" href="/favicon.png">
   
@@ -16,11 +16,11 @@
   
   
   
-  <meta property="og:title" content="VPS 下载机 - Hexo" />
+  <meta property="og:title" content="Download Server - Hexo" />
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:url" content="http://example.com/2024/07/02/2024-07-02-vps-xia-zai-ji/index.html" />
+  <meta property="og:url" content="http://example.com/2024/07/02/2024-07-02-download-server/index.html" />
   
   <meta property="og:image" content="https://raw.githubusercontent.com/OwlllOvO/Hexo-image/main/20240801224800.png" />
   
@@ -150,24 +150,24 @@
         </div>
         
 
-        <h1 class="title">VPS 下载机</h1>
+        <h1 class="title">Download Server</h1>
     </div>
 
     <div class="divider"></div>
 
     <div class="content">
-        <h1 id="VPS-下载机"><a href="#VPS-下载机" class="headerlink" title="VPS 下载机"></a>VPS 下载机</h1><p>最近终于有空，把之前想了很久的 VPS 配置了一下</p>
-<p>这次配置的是下载机，可以实现远程挂机下载，下载完成后再用固定的 <code>本地 - VPS</code> 的线路把下载好的文件取回</p>
+        <h1 id="Download-Server"><a href="#Download-Server" class="headerlink" title="Download Server"></a>Download Server</h1><p>最近终于有空，把之前想了很久的下载机配置了一下</p>
+<p>这次配置的是下载机，可以实现远程挂机下载，下载完成后再用固定的 <code>本地 - Server</code> 的线路把下载好的文件取回</p>
 <h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p>以下是目前实现的效果，之后遇到问题还会不断更新：</p>
 <ul>
 <li>通过 <code>https://&lt;files.domain&gt;</code> 访问存储在 <code>/var/www/files</code> 文件夹内的下载好的文件，供本地用 aria2、wget 等方式下载</li>
 <li>普通下载任务：<ul>
-<li>VPS：通过 <code>https://&lt;ariang.domain&gt;</code> 访问 AriaNg 网页，登录账号，添加任务，文件下载到 <code>/disk/aria2Downloads</code>，下载完成后自动创建链接到 <code>/var/www/files</code></li>
-<li>本地使用 aria2 开启 16 线程从 Nginx 文件服务器下载文件，一般可以跑满网络带宽，下载完成后自动运行脚本删除 VPS 中存储的文件</li>
+<li>Server：通过 <code>https://&lt;ariang.domain&gt;</code> 访问 AriaNg 网页，登录账号，添加任务，文件下载到 <code>/disk/aria2Downloads</code>，下载完成后自动创建链接到 <code>/var/www/files</code></li>
+<li>本地使用 aria2 开启 16 线程从 Nginx 文件服务器下载文件，一般可以跑满网络带宽，下载完成后自动运行脚本删除 Server 中存储的文件</li>
 </ul>
 </li>
 <li>BT 下载任务：<ul>
-<li>VPS：通过 <code>https://&lt;qbit.domain&gt;</code> 打开 qBittorrent 网页，登录账号，添加任务，文件下载到 <code>/disk/qBitDownloads</code>，下载完成后自动创建链接到 <code>/var/www/files</code></li>
+<li>Server：通过 <code>https://&lt;qbit.domain&gt;</code> 打开 qBittorrent 网页，登录账号，添加任务，文件下载到 <code>/disk/qBitDownloads</code>，下载完成后自动创建链接到 <code>/var/www/files</code></li>
 <li>因为 BT 下载多为文件夹，无法使用 aria2 下载，因此根据情况判断：<ul>
 <li>若下载内容为文件集合，即没有目录结构，使用脚本获取所有文件链接，使用 aria2 和普通任务一样下载</li>
 <li>若下载内容有复杂的目录结构，使用 wget 下载</li>
@@ -181,7 +181,7 @@
 <h3 id="存在不足"><a href="#存在不足" class="headerlink" title="存在不足"></a>存在不足</h3><ul>
 <li>本地下载 BT 文件不够优雅：<ul>
 <li>不含目录结构的 BT 文件需要手动执行脚本获取所有文件列表后使用 aria2 下载</li>
-<li>包含目录结构的 BT 文件需要手动使用 wget 下载、手动多开 wget 实现多线程，以及下载完成后需要手动删除 VPS 上的文件</li>
+<li>包含目录结构的 BT 文件需要手动使用 wget 下载、手动多开 wget 实现多线程，以及下载完成后需要手动删除 Server 上的文件</li>
 </ul>
 </li>
 </ul>
@@ -190,9 +190,9 @@
 </blockquote>
 <h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul>
 <li>（如果需要用域名访问或开启 HTTPS）一个域名，并且会配置 DNS</li>
-<li>一台 VPS，有容量足够大的硬盘</li>
+<li>一台 Server，有容量足够大的硬盘</li>
 </ul>
-<h2 id="VPS-选择"><a href="#VPS-选择" class="headerlink" title="VPS 选择"></a>VPS 选择</h2><p>用 VPS 下载文件很容易遇到版权问题，如果用一些普通机器，尤其是美国地区的，稍不小心就会导致 VPS 被停机</p>
+<h2 id="Server-选择"><a href="#Server-选择" class="headerlink" title="Server 选择"></a>Server 选择</h2><p>用 VPS 下载文件很容易遇到版权问题，如果用一些普通机器，尤其是美国地区的，稍不小心就会导致 VPS 被停机</p>
 <p>因此，如果是需要下载，最好选择 <code>抗 DMCA 投诉</code> 的机器，多分布于欧洲，如卢森堡、摩尔多瓦等</p>
 <p>比较推荐的是 BuyVM 家的卢森堡机器，抗 DMCA 投诉</p>
 <ul>
@@ -610,7 +610,7 @@
         <p class="tags">
             
             <i class="icon"></i>
-            <a href="/tags/VPS/" class="tag">#VPS</a><a href="/tags/aria2/" class="tag">#aria2</a><a href="/tags/qBittorrent/" class="tag">#qBittorrent</a>
+            <a href="/tags/Server/" class="tag">#Server</a><a href="/tags/aria2/" class="tag">#aria2</a><a href="/tags/qBittorrent/" class="tag">#qBittorrent</a>
         </p>
         
     </div>
