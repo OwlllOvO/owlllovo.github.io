@@ -33,7 +33,6 @@ body {
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: 0.012em;
-  margin-right: calc(20vw); /* 根据 TOC 的宽度调整左侧边距 */
 }
 
 .content p,
@@ -352,6 +351,10 @@ body[data-color-scheme="dark"] .tags .icon {
 }
 
 /* Modified */
+
+.post .content {
+  margin-right: calc(20vw); /* 根据 TOC 的宽度调整左侧边距 */
+}
 
 .post .divider {
   display: none;
