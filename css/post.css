@@ -374,3 +374,10 @@ img {
     width: auto;
     height: auto;
 }
+
+@media screen and (max-width: 1000px) {
+  .post .content,
+  .meta {
+    margin-right: 0;
+  }
+}

@@ -31,3 +31,21 @@
   height: calc(75vh); /* 确保 TOC 高度充满视口 */
   overflow-y: auto; /* 确保 TOC 内容超出时可以滚动 */
 }
+
+@media screen and (max-width: 1000px) {
+  .toc {
+    margin-top: 0;
+    position: static; /* Reverting to default positioning */
+    width: auto; /* Reverting to default width */
+    padding: 0; /* Reverting to default padding */
+    background: none; /* Reverting to default background */
+    border-left: none; /* Reverting to default border */
+    height: auto; /* Reverting to default height */
+    overflow-y: visible; /* Reverting to default overflow */
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .toc > p > a {
+    border-left: none; /* Reverting to default border */
+  }
+}
