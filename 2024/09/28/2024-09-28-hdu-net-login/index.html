@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>HDU Net Login - OwlllOvO&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="HDU Net Login - OwlllOvO&#39;s Blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://example.com/2024/09/28/2024-09-28-hdu-net-login/index.html" />
+  
+  <meta property="og:image" content="https://github.com/OwlllOvO/Hexo-image/blob/main/20240928120800.png?raw=true" />
+  
+  <meta property="og:article:published_time" content="2024-09-28T02:08:00.000Z" />
+  
+  <meta property="og:article:author" content="OwlllOvO" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="6"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/OwlllOvO" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/Tech/">Tech</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>September</span>
+            <span>28,</span>
+            <span>2024</span>
+        </div>
+        
+
+        <h1 class="title">HDU Net Login</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="HDU-Net-Login"><a href="#HDU-Net-Login" class="headerlink" title="HDU Net Login"></a>HDU Net Login</h1><p>HDU  的网络每天都需要手动在网页上输入学号和密码登录，不仅非常麻烦</p>
+<p>而且经过测试，网络一般在每天凌晨一点多的时候断开，而我至少也要等到早上才会到实验室重新登录</p>
+<p>如果有需要长时间保持联网的服务，将导致很长一段时间的网络不可用</p>
+<p>因此考虑写一个自动化脚本，每天自动登录</p>
+<h2 id="登录方式"><a href="#登录方式" class="headerlink" title="登录方式"></a>登录方式</h2><p>首先，HDU 的网络是通过在 <code>http://192.168.112.30</code> 输入学号和密码登录，对此过程观察网络请求</p>
+<p><img src="https://github.com/OwlllOvO/Hexo-image/blob/main/20240928104544.png?raw=true"></p>
+<p>可以发现，登录时的请求中包含了用户名  <code>username</code> 和密码 <code>passowrd</code></p>
+<p>但同时也包括了校验码 <code>chksum</code> 和加密验证信息 <code>info</code></p>
+<p>以及观察登录页面的元素</p>
+<p><img src="https://github.com/OwlllOvO/Hexo-image/blob/main/20240928110631.png?raw=true"></p>
+<p>可以发现，学号、密码和登录按钮分别为 <code>#username</code>，<code>#passowrd</code> 和 <code>#login-account</code></p>
+<p>因此，只需自动填入 <code>#username</code> 和  <code>#passowrd</code>，然后点击 <code>#login-account</code> 即可</p>
+<h2 id="Tampermonkey"><a href="#Tampermonkey" class="headerlink" title="Tampermonkey"></a>Tampermonkey</h2><p>我首先想到的就是利用 Tampermonkey 脚本，正好符合对网页进行操作的需求，而且非常简单</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         HDU-Net-Login</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      1.0</span></span><br><span class="line"><span class="comment">// @description  Automatically login to network auth</span></span><br><span class="line"><span class="comment">// @author       You</span></span><br><span class="line"><span class="comment">// @match        http://192.168.112.30/*</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Replace with your username and password</span></span><br><span class="line">    <span class="keyword">var</span> username = <span class="string">&#x27;&lt;USERNAME&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> password = <span class="string">&#x27;&lt;PASSWORD&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Replace &#x27;username_field_id&#x27;, &#x27;password_field_id&#x27;, and &#x27;login_button_id&#x27; with the actual IDs</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;username&#x27;</span>).<span class="property">value</span> = username;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;password&#x27;</span>).<span class="property">value</span> = password;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Automatically click the login button</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;login-account&#x27;</span>).<span class="title function_">click</span>();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>这样，访问 <code>http://192.168.112.30</code> 的时候 Tampermonkey 就会自动往文本框中填入学号和密码，并自动点击登录</p>
+<p>然而，这虽然很大程度上简化了登录，但仍旧需要手动访问登录页面</p>
+<p>我也尝试过使用 <code>Automator.app</code> 定时自动打开网页，但是似乎在 Mac 进入屏幕保护程序之后是无法打开图形化程序的，只好放弃</p>
+<h2 id="Puppeteer"><a href="#Puppeteer" class="headerlink" title="Puppeteer"></a>Puppeteer</h2><p>Puppeteer 是一个 Node.js 库，可以控制无头浏览器，可以使用它模拟用户在浏览器中的操作，从而自动执行登录流程</p>
+<ol>
+<li><p>安装 Puppeteer</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install puppeteer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写 Puppeteer 脚本</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">&#x27;puppeteer&#x27;</span>);</span><br><span class="line"></span><br><span class="line">   (<span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">       <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.<span class="title function_">launch</span>();</span><br><span class="line">       <span class="keyword">const</span> page = <span class="keyword">await</span> browser.<span class="title function_">newPage</span>();</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Go to login auth page</span></span><br><span class="line">       <span class="keyword">await</span> page.<span class="title function_">goto</span>(<span class="string">&#x27;http://192.168.112.30/srun_portal_pc?ac_id=0&amp;theme=pro&#x27;</span>);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Fill username and password</span></span><br><span class="line">       <span class="keyword">await</span> page.<span class="title function_">type</span>(<span class="string">&#x27;#username&#x27;</span>, <span class="string">&#x27;&lt;USERNAME&gt;&#x27;</span>);</span><br><span class="line">       <span class="keyword">await</span> page.<span class="title function_">type</span>(<span class="string">&#x27;#password&#x27;</span>, <span class="string">&#x27;&lt;PASSWORD&gt;&#x27;</span>);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Click login button</span></span><br><span class="line">       <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>([</span><br><span class="line">           page.<span class="title function_">click</span>(<span class="string">&#x27;#login-account&#x27;</span>),</span><br><span class="line">           page.<span class="title function_">waitForNavigation</span>() <span class="comment">// Wait for navigation</span></span><br><span class="line">       ]);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Check login status</span></span><br><span class="line">       <span class="keyword">const</span> success = <span class="keyword">await</span> page.<span class="title function_">evaluate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerText</span>.<span class="title function_">includes</span>(<span class="string">&quot;Login Successful&quot;</span>);</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (success) &#123;</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Login Successful&#x27;</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Login Failed&#x27;</span>);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">await</span> browser.<span class="title function_">close</span>();</span><br><span class="line">   &#125;)();</span><br></pre></td></tr></table></figure>
+
+<p> 保存为 <code>HDU-Net-Login.js</code></p>
+</li>
+<li><p>自动运行登录脚本</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">0 * * * * /path/to/node /path/to/HDU-Net-Login.js &gt;&gt; /path/to/HDU-Net-Login.<span class="built_in">log</span> 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<p> 每个小时自动运行登录脚本，并把运行结果写入到 <code>HDU-Net-Login.log</code> 中</p>
+</li>
+</ol>
+<p>经过测试，脚本运行正常，可以实现登录功能</p>
+<p>但是定时每小时运行还是不够完美，之后可以修改为持续的网络状态检测，发现网络断开后自动运行登录脚本</p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by OwlllOvO, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/HDU/" class="tag">#HDU</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2024/08/02/2024-08-02-grafana-server-monitor/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Grafana Server Monitor</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Projects</h2>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/OwlllOvO" class="item">GitHub</a>
+                
+                <a href="mailto:contact@pengbo.wang" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2024 OwlllOvO<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
