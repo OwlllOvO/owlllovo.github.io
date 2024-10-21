@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>WebDAV - OwlllOvO&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="WebDAV - OwlllOvO&#39;s Blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://example.com/2024/10/21/2024-10-21-webdav/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2024-10-21T09:23:00.000Z" />
+  
+  <meta property="og:article:author" content="OwlllOvO" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="6"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/OwlllOvO" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/TECH/">TECH</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>21,</span>
+            <span>2024</span>
+        </div>
+        
+
+        <h1 class="title">WebDAV</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="WebDAV"><a href="#WebDAV" class="headerlink" title="WebDAV"></a>WebDAV</h1><p>WebDAV 扩展自 HTTP 协议，可以在远程 web 服务器上管理文件</p>
+<p>作为一种标准的协议，许多 App 支持通过 WebDAV 备份或管理数据</p>
+<p>也正由于这是一种标准的协议，使用网盘无需通过对应的客户端，国内许多主要的网盘都不提供 WebDAV，如百度网盘；有提供 WebDAV 的如坚果云</p>
+<p>而无论如何，数据最终还是存储在对应的服务商手里，因此我今天在自己的服务器上搭建 WebDAV 服务，用于一些重要数据的存储</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li><p>安装 Nginx</p>
+<p>如果还没有安装 Nginx，使用以下命令进行安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 <code>nginx-dav-ext-module</code></p>
+<p>Nginx 的标准安装不包含 WebDAV 模块，因此需要安装 <code>nginx-dav-ext-module</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install libnginx-mod-http-dav-ext</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 WebDAV</p>
+<p>创建一个新的配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/nginx/sites-available/&lt;webdav.domain.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加以下配置：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> &lt;webdav.domain.com&gt;;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /webdav/ &#123;</span><br><span class="line">        <span class="attribute">root</span> /var/www/webdav;  <span class="comment"># WebDAV 文件存放目录</span></span><br><span class="line">        <span class="attribute">dav_methods</span> PUT DELETE MKCOL COPY MOVE;</span><br><span class="line">        <span class="attribute">create_full_put_path</span> <span class="literal">on</span>;</span><br><span class="line">        <span class="attribute">dav_access</span> user:rw group:rw all:r;</span><br><span class="line">        <span class="attribute">auth_basic</span> <span class="string">&quot;Restricted&quot;</span>;</span><br><span class="line">        <span class="attribute">auth_basic_user_file</span> /etc/nginx/.htpasswd;  <span class="comment"># 基本认证文件</span></span><br><span class="line">        <span class="attribute">client_max_body_size</span> <span class="number">100M</span>;	<span class="comment"># 单个文件大小限制，根据需求调整</span></span><br><span class="line">        <span class="attribute">autoindex</span> <span class="literal">on</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 WebDAV 文件目录</p>
+<p> 创建 WebDAV 文件存放目录并设置权限：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /var/www/webdav</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R www-data:www-data /var/www/webdav</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 755 /var/www/webdav</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置基本认证</p>
+<p> 为了保护 WebDAV，建议使用基本认证</p>
+<p> 首先安装 <code>apache2-utils</code>，以便使用 <code>htpasswd</code> 工具：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install apache2-utils</span><br></pre></td></tr></table></figure>
+<p> 然后创建一个用户和密码文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> htpasswd -c /etc/nginx/.htpasswd &lt;username&gt;</span><br></pre></td></tr></table></figure>
+<p> 根据提示输入密码</p>
+</li>
+<li><p>启用站点配置</p>
+<p> 将新配置文件链接到 <code>sites-enabled</code> 目录：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /etc/nginx/sites-available/&lt;webdav.domain.com&gt; /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试 Nginx 配置</p>
+<p> 在重新加载 Nginx 之前，先测试配置文件是否正确：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nginx -t</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启 Nginx</p>
+<p> 如果配置测试没有错误，可以重启 Nginx 以应用更改：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart nginx</span><br></pre></td></tr></table></figure>
+
+<p> 现在，可以通过 <code>http://&lt;webdav.domain.com&gt;/webdav/</code> 访问 WebDAV 中的文件</p>
+<p> 在连接时会要求输入用户名和密码</p>
+</li>
+<li><p>（可选，建议）启用 HTTPS</p>
+<p>使用 Let’s Encrypt 为站点获取 SSL 证书</p>
+<ol>
+<li><p>安装 Certbot</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install certbot python3-certbot-nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取 SSL 证书</p>
+<p>使用以下命令来获取证书：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> certbot --nginx -d &lt;webdav.domain.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>按照提示完成 SSL 证书的获取</p>
+</li>
+<li><p>配置 WebDAV</p>
+<p>编辑或创建 WebDAV 的 Nginx 配置文件 <code>/etc/nginx/sites-available/&lt;webdav.domain.com&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/nginx/sites-available/&lt;webdav.domain.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>正常情况下，配置文件将会调整为以下内容：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> &lt;webdav.domain.com&gt;;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 强制将 HTTP 请求重定向到 HTTPS</span></span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">server_name</span> &lt;webdav.domain.com&gt;;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/letsencrypt/live/&lt;webdav.domain.com&gt;/fullchain.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/letsencrypt/live/&lt;webdav.domain.com&gt;/privkey.pem;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /webdav/ &#123;</span><br><span class="line">        <span class="attribute">root</span> /var/www/webdav;  <span class="comment"># WebDAV 文件存放目录</span></span><br><span class="line">        <span class="attribute">dav_methods</span> PUT DELETE MKCOL COPY MOVE;</span><br><span class="line">        <span class="attribute">create_full_put_path</span> <span class="literal">on</span>;</span><br><span class="line">        <span class="attribute">dav_access</span> user:rw group:rw all:r;</span><br><span class="line">        <span class="attribute">auth_basic</span> <span class="string">&quot;Restricted&quot;</span>;</span><br><span class="line">        <span class="attribute">auth_basic_user_file</span> /etc/nginx/.htpasswd;  <span class="comment"># 基本认证文件</span></span><br><span class="line">        <span class="attribute">client_max_body_size</span> <span class="number">100M</span>;	<span class="comment"># 单个文件大小限制，根据需求调整</span></span><br><span class="line">        <span class="attribute">autoindex</span> <span class="literal">on</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ 注意</p>
+<p>如果 WebDAV 目录是空的，也有可能返回 <code>403 Forbidden</code></p>
+<p>确保在 WebDAV 目录中有一些可访问的文件或子目录</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>应用 WebDAV</p>
+<p>在支持 WebDAV 的 App 里，如 Zotero，填入 WebDAV 信息即可</p>
+<img src="https://github.com/OwlllOvO/Hexo-image/blob/12d30691ba5bd568fb7013474d98016ccbb69791/20241021193145.png?raw=true"/></li>
+</ol>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by OwlllOvO, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/Drive/" class="tag">#Drive</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2024/09/28/2024-09-28-hdu-net-login/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">HDU Net Login</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Projects</h2>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/OwlllOvO" class="item">GitHub</a>
+                
+                <a href="mailto:contact@pengbo.wang" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2024 OwlllOvO<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
