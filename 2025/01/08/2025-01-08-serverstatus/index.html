@@ -156,19 +156,20 @@
     <div class="divider"></div>
 
     <div class="content">
-        <h1 id="ServerStatus"><a href="#ServerStatus" class="headerlink" title="ServerStatus"></a>ServerStatus</h1><h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>之前折腾过 Prometheus + Grafana 的服务器状态监控，一直用的都还不错，只不过感觉确实太重了，监控的项目非常多，而我日常并不需要监控这么多项目</p>
+        <h1 id="ServerStatus"><a href="#ServerStatus" class="headerlink" title="ServerStatus"></a>ServerStatus</h1><h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>之前折腾过 <a target="_blank" rel="noopener" href="https://blog.owlllovo.com/2024/08/02/2024-08-02-prometheus-grafana/">Prometheus + Grafana</a> 的服务器状态监控，一直用的都还不错，只不过感觉确实太重了，监控的项目非常多，而我日常并不需要监控这么多项目</p>
 <p>于是我又给服务器装上了 ServerStatus，这个是和哪吒差不多的监控，但是比哪吒轻量许多，没有 webssh 等多余的功能，是一个单纯的服务器监控，并且完全开源</p>
 <p>这里我选择的是其中一个基于 Rust 重写的版本，功能更强，性能更高</p>
+<p><a target="_blank" rel="noopener" href="https://serverstatus.owlllovo.com/">serverstatus.owlllovo.com</a></p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/ServerStatus &amp;&amp; <span class="built_in">cd</span> /opt/ServerStatus</span><br><span class="line"></span><br><span class="line">wget https://github.com/zdz/ServerStatus-Rust/releases/download/v1.8.1/server-x86_64-unknown-linux-musl.zip</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt install -y unzip</span><br><span class="line"></span><br><span class="line">unzip server-x86_64-unknown-linux-musl.zip</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> -v stat_server.service /etc/systemd/system/stat_server.service</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line">systemctl start stat_server</span><br><span class="line"></span><br><span class="line">systemctl status stat_server</span><br><span class="line"></span><br><span class="line">vim /opt/ServerStatus/config.toml</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>修改配置文件：</p>
 <ul>
-<li><p>admin_user &#x3D; “<Username>“：管理员用户名</p>
+<li><p><code>admin_user = &quot;&lt;Username&gt;&quot;</code>：管理员用户名</p>
 </li>
-<li><p>admin_pass &#x3D; “<Password>“：管理员密码</p>
+<li><p><code>admin_pass = &quot;&lt;Password&gt;&quot;</code>：管理员密码</p>
 </li>
-<li><p>{name &#x3D; “<Client Name>“, password &#x3D; “<Client Password>“, alias &#x3D; “<Client Display Name>“, location &#x3D; “<Country Code>“, type &#x3D; “<Platform>“, labels &#x3D; “os&#x3D;<OS>;ndd&#x3D;<Date>;spec&#x3D;<CPU Cores>C&#x2F;<Memory>G&#x2F;<Disk>G;”}</p>
+<li><p><code>&#123;name = &quot;&lt;Client Name&gt;&quot;, password = &quot;&lt;Client Password&gt;&quot;, alias = &quot;&lt;Client Display Name&gt;&quot;, location = &quot;&lt;Country Code&gt;&quot;, type = &quot;&lt;Platform&gt;&quot;, labels = &quot;os=&lt;OS&gt;;ndd=&lt;Date&gt;;spec=&lt;CPU Cores&gt;C/&lt;Memory&gt;G/&lt;Disk&gt;G;&quot;&#125;</code></p>
 <ul>
 <li><code>&lt;Client Name&gt;</code>：客户端名称，每台唯一</li>
 <li><code>&lt;Client Password&gt;</code>：客户端密码，须与客户端配置对应</li>
