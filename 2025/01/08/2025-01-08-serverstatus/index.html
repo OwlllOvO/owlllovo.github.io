@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>ServerStatus - OwlllOvO&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="ServerStatus - OwlllOvO&#39;s Blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://example.com/2025/01/08/2025-01-08-serverstatus/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-08T10:12:12.000Z" />
+  
+  <meta property="og:article:author" content="OwlllOvO" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="6"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/OwlllOvO" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/Notes/">Notes</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>8,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">ServerStatus</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="ServerStatus"><a href="#ServerStatus" class="headerlink" title="ServerStatus"></a>ServerStatus</h1><h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>之前折腾过 Prometheus + Grafana 的服务器状态监控，一直用的都还不错，只不过感觉确实太重了，监控的项目非常多，而我日常并不需要监控这么多项目</p>
+<p>于是我又给服务器装上了 ServerStatus，这个是和哪吒差不多的监控，但是比哪吒轻量许多，没有 webssh 等多余的功能，是一个单纯的服务器监控，并且完全开源</p>
+<p>这里我选择的是其中一个基于 Rust 重写的版本，功能更强，性能更高</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/ServerStatus &amp;&amp; <span class="built_in">cd</span> /opt/ServerStatus</span><br><span class="line"></span><br><span class="line">wget https://github.com/zdz/ServerStatus-Rust/releases/download/v1.8.1/server-x86_64-unknown-linux-musl.zip</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt install -y unzip</span><br><span class="line"></span><br><span class="line">unzip server-x86_64-unknown-linux-musl.zip</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> -v stat_server.service /etc/systemd/system/stat_server.service</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line">systemctl start stat_server</span><br><span class="line"></span><br><span class="line">systemctl status stat_server</span><br><span class="line"></span><br><span class="line">vim /opt/ServerStatus/config.toml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>修改配置文件：</p>
+<ul>
+<li><p>admin_user &#x3D; “<Username>“：管理员用户名</p>
+</li>
+<li><p>admin_pass &#x3D; “<Password>“：管理员密码</p>
+</li>
+<li><p>{name &#x3D; “<Client Name>“, password &#x3D; “<Client Password>“, alias &#x3D; “<Client Display Name>“, location &#x3D; “<Country Code>“, type &#x3D; “<Platform>“, labels &#x3D; “os&#x3D;<OS>;ndd&#x3D;<Date>;spec&#x3D;<CPU Cores>C&#x2F;<Memory>G&#x2F;<Disk>G;”}</p>
+<ul>
+<li><code>&lt;Client Name&gt;</code>：客户端名称，每台唯一</li>
+<li><code>&lt;Client Password&gt;</code>：客户端密码，须与客户端配置对应</li>
+<li><code>&lt;Client Display Name&gt;</code>：客户端显示的名字</li>
+<li><code>&lt;Country Code&gt;</code>：客户端所在国家二字母代码，如 <code>CN</code> <code>US</code></li>
+<li><code>&lt;Platform&gt;</code>：客户端平台，如 <code>arm</code> <code>x86</code> <code>kvm</code> <code>ovz</code></li>
+<li><code>os=&lt;OS&gt;;ndd=&lt;Date&gt;;spec=&lt;CPU Cores&gt;C/&lt;Memory&gt;G/&lt;Disk&gt;G;</code>：客户端系统信息，如 <code>os=ubuntu;ndd=2025/01/31;spec=1C/2G/20G;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><ul>
+<li>前往 <a target="_blank" rel="noopener" href="https://github.com/zdz/ServerStatus-Rust/releases"></a> 查看最新版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/ServerStatus &amp;&amp; <span class="built_in">cd</span> /opt/ServerStatus</span><br><span class="line"></span><br><span class="line">wget https://github.com/zdz/ServerStatus-Rust/releases/download/v1.8.1/client-x86_64-unknown-linux-musl.zip</span><br><span class="line"></span><br><span class="line">apt install -y unzip</span><br><span class="line"></span><br><span class="line">unzip client-x86_64-unknown-linux-musl.zip</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> -v stat_client.service /etc/systemd/system/stat_client.service</span><br><span class="line"></span><br><span class="line">vim /etc/systemd/system/stat_client.service</span><br></pre></td></tr></table></figure>
+
+<p>替换这行：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/opt/ServerStatus/stat_client -a <span class="string">&quot;https://&lt;domain&gt;:8080/report&quot;</span> -u <span class="string">&quot;&lt;Client Name&gt;&quot;</span> -p <span class="string">&quot;&lt;Client Password&gt;&quot;</span> -n</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line">systemctl <span class="built_in">enable</span> --now stat_client</span><br><span class="line"></span><br><span class="line">systemctl status stat_client</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by OwlllOvO, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/Server/" class="tag">#Server</a><a href="/tags/Monitor/" class="tag">#Monitor</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2025/01/04/2025-01-04-airpods-4-anc-snake/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">AirPods 4 ANC Snake</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Projects</h2>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/OwlllOvO" class="item">GitHub</a>
+                
+                <a href="mailto:contact@pengbo.wang" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 OwlllOvO<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
