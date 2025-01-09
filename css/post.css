@@ -4,6 +4,7 @@ body {
 
 .post {
   margin: 128px 0;
+  margin-left: 50px;
 }
 
 .meta .categories {
@@ -177,6 +178,7 @@ hr,
 
 .content blockquote {
   max-width: calc(1200px - 16px * 2);
+  background-color: rgb(240,240,240);
   padding: 0 8px;
 }
 
