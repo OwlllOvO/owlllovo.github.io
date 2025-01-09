@@ -11,6 +11,8 @@ body[data-color-scheme="auto"], body[data-color-scheme="light"] {
     --black-2: rgb(51, 51, 51);
     --black-4: rgb(102, 102, 102);
 
+    --grey-bg: rgb(240, 240, 240);
+
     --border-color: #8882;
 
     --link: #06c;
@@ -45,6 +47,8 @@ body[data-color-scheme="auto"], body[data-color-scheme="light"] {
         --black-2: rgb(204, 204, 204);
         --black-4: rgb(153, 153, 153);
 
+        --grey-bg: rgb(40, 40, 40);
+
         --border-color: #8884;
 
         --link: #5fafff;
@@ -78,6 +82,8 @@ body[data-color-scheme="dark"] {
     --black: #fff;
     --black-2: rgb(204, 204, 204);
     --black-4: rgb(153, 153, 153);
+
+    --grey-bg: rgb(40, 40, 40);
 
     --border-color: #8884;
 

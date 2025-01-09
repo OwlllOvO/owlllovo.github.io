@@ -178,7 +178,7 @@ hr,
 
 .content blockquote {
   max-width: calc(1200px - 16px * 2);
-  background-color: rgb(240,240,240);
+  background-color: var(--grey-bg);
   padding: 0 8px;
 }
 
