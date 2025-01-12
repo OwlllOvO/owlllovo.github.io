@@ -13,8 +13,8 @@ nav {
 }
 
 nav>.inner {
-    max-width: 980px;
-    margin: auto;
+    /* max-width: 980px;
+    margin: auto; */
     padding: 0 16px;
 }
 
