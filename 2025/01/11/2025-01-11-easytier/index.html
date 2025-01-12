@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>EasyTier 内网穿透 - OwlllOvO&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="EasyTier 内网穿透 - OwlllOvO&#39;s Blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://example.com/2025/01/11/2025-01-11-easytier/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-11T12:12:06.000Z" />
+  
+  <meta property="og:article:author" content="OwlllOvO" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="6"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item" href="/donate">Donate</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/OwlllOvO" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/Notes/">Notes</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>11,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">EasyTier 内网穿透</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="EasyTier"><a href="#EasyTier" class="headerlink" title="EasyTier"></a>EasyTier</h1><p><a target="_blank" rel="noopener" href="https://easytier.cn/">EasyTier 中文官网</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>EasyTier 是一个内网穿透工具，类似于 ZeroTier，会利用公网服务器交换设备的信息，首先尝试双方建立 p2p 连接即打洞</p>
+<p>如果打洞成功，则双方在网络上直接传输数据，达到最高传输速率；否则双方通过服务器转发数据，速度受限于服务器带宽</p>
+<p>因此，只要能打洞成功，那些带宽非常小的服务器也可以用来内网穿透</p>
+<p>不过与 Zerotier 不同的是，Zerotier 默认使用官方提供的国外服务器，速度很慢，当然也可以改用自建服务器，但是比较繁琐</p>
+<p>EasyTier 可以非常简单地完成自建结点并使用自建结点建立连接</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><ol>
+<li><p>下载 EasyTier</p>
+<ul>
+<li>从 <a target="_blank" rel="noopener" href="https://github.com/EasyTier/EasyTier/releases/latest">Latest release · EasyTier&#x2F;EasyTier · GitHub</a> 获取最新版本</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/EasyTier/EasyTier/releases/download/v2.1.1/easytier-linux-x86_64-v2.1.1.zip</span><br><span class="line">apt install unzip</span><br><span class="line">unzip easytier-linux-x86_64-v2.1.1.zip</span><br><span class="line"><span class="built_in">mv</span> easytier-linux-x86_64/* /usr/local/bin/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建服务文件 <code>/etc/systemd/system/easytier.service</code></p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=EasyTier Service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/root/easytier-core --ipv4 10.114.114.1 --network-name &lt;Name&gt; --network-secret &lt;Password&gt;</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;Name&gt;</code> <code>&lt;Password&gt;</code>：每个入网节点提供相同的 <code>--network-name</code> 和 <code>--network-secret</code> 参数，作为网络的唯一标识</li>
+<li>如果需要提供 WireGuard 接入，则添加参数 <code>--vpn-portal wg://0.0.0.0:11013/10.14.14.0/24</code></li>
+</ul>
+</li>
+<li><p>启用服务：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now easytier.service</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="Clients"><a href="#Clients" class="headerlink" title="Clients"></a>Clients</h3><ol>
+<li><p>下载 EasyTier</p>
+<ul>
+<li>从 <a target="_blank" rel="noopener" href="https://github.com/EasyTier/EasyTier/releases/latest">Latest release · EasyTier&#x2F;EasyTier · GitHub</a> 获取最新版本</li>
+<li>可以选择 GUI 版本，操作更加直观简单</li>
+</ul>
+</li>
+<li><p>运行 EasyTier</p>
+<ul>
+<li><p>GUI</p>
+<p>  <img src="https://github.com/OwlllOvO/Hexo-image/blob/main/20250112153102.png?raw=true"></p>
+<ul>
+<li><code>IPv4</code>：填 <code>10.114.114.&lt;2-255&gt;</code> 地址，或勾选 <code>DHCP</code> 自动分配 IP</li>
+<li><code>Network Name</code> <code>Network Secret</code>：填与服务器相同的网络名和密码</li>
+<li><code>Network Mehtod</code>：<code>tcp://&lt;Server IP&gt;:11010</code></li>
+<li>点击 <code>Run Server</code></li>
+</ul>
+<p>  <img src="https://github.com/OwlllOvO/Hexo-image/blob/main/20250112153328.png?raw=true"></p>
+<p>  显示出连接的其他设备即运行成功</p>
+<p>  <code>Route Cost</code> 为与设备连接方式</p>
+<ul>
+<li><code>p2p</code> 为与该设备直接连接，即打洞成功</li>
+<li><code>relay</code> 为通过服务器中转流量</li>
+</ul>
+</li>
+<li><p>Cli</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/EasyTier/EasyTier/releases/download/v2.1.1/easytier-linux-x86_64-v2.1.1.zip</span><br><span class="line">unzip easytier-linux-x86_64-v2.1.1.zip</span><br><span class="line"><span class="built_in">mv</span> easytier-linux-x86_64/* /usr/local/bin/</span><br><span class="line">vim /etc/systemd/system/easytier.service</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=EasyTier Service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/root/easytier-core --ipv4 10.114.114.2 --network-name &lt;Name&gt; --network-secret &lt;Password&gt; --peers tcp://&lt;Server IP&gt;:11010</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now easytier.service</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>此时可以通过虚拟网络 IP 访问连接到网络的设备</p>
+</li>
+</ol>
+<h3 id="WireGuard"><a href="#WireGuard" class="headerlink" title="WireGuard"></a>WireGuard</h3><p>在不支持运行 EasyTier 的平台（如 iOS），也可以使用 WireGuard 接入，但是这样所有流量都只能通过 WireGuard 接入的设备转发</p>
+<p>每个加入网络的节点都可以提供 WireGuard 接入服务，而不仅限于连接服务器</p>
+<ol>
+<li><p>创建 WireGuard 服务</p>
+<p> 在加入网络的节点设备启动命令里添加 <code>--vpn-portal wg://0.0.0.0:11013/10.14.14.0/24</code></p>
+</li>
+<li><p>获取 WireGuard 配置信息</p>
+<p> <code>easytier-cli vpn-portal</code></p>
+<p> 将输出如下配置</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">portal_name: wireguard</span><br><span class="line"></span><br><span class="line">client_config:</span><br><span class="line">[Interface]</span><br><span class="line">PrivateKey = 9VDvlaIC9XHUvRuE06hD2CEDrtGF+0lDthgr9SZfIho=</span><br><span class="line">Address = 10.14.14.0/24 # should assign an ip from this cidr manually</span><br><span class="line"></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = zhrZQg4QdPZs8CajT3r4fmzcNsWpBL9ImQCUsnlXyGM=</span><br><span class="line">AllowedIPs = 192.168.80.0/20,10.147.223.0/24,10.144.144.0/24</span><br><span class="line">Endpoint = 0.0.0.0:11013 # should be the public ip of the easytier server</span><br><span class="line"></span><br><span class="line">connected_clients:</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+
+<p> 输入到支持 WireGuard 代理的软件里即可</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by OwlllOvO, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/Network/" class="tag">#Network</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2025/01/08/2025-01-08-serverstatus/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">ServerStatus</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Projects</h2>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/OwlllOvO" class="item">GitHub</a>
+                
+                <a href="mailto:contact@pengbo.wang" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 OwlllOvO<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
